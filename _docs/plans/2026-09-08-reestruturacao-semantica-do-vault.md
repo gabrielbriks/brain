@@ -16,9 +16,9 @@ tags: [plan, architecture, para-model, refactor]
 
 ### Sobre Gabriel (contexto de quem usa o sistema)
 - **Desenvolvedor Fullstack** pleno e **MEI**
-- **CLT na Implanta** (sistemas .NET/SQL Server — empenhos, liquidações, Restos a Pagar)
+- **CLT na Implanta** (sistemas contabeis .NET/SQL Server — empenhos, liquidações, pagamentos, Restos a Pagar, etc)
 - **Empreendedor** com múltiplos produtos SaaS em andamento
-- Usa diariamente: **Antigravity IDE**, **Antigravity CLI (`agy`)** e **Claude Code** (extensão VS Code + CLI via `openclaude`)
+- Usa diariamente: **Antigravity IDE**, **Antigravity CLI (`agy`)** e **Claude Code** (extensão VS Code + CLI via `claude code cli`)
 - Input principal no Brain: **Telegram** (mensagens de texto e voz) + sessões diretas no Hermes
 
 ### Decisões já validadas pelo Gabriel

@@ -1,17 +1,51 @@
-# Brain - Sistema Operacional Pessoal
+# Brain — Sistema Operacional Pessoal
 
-O **Brain** é um sistema operacional pessoal e um hub central projetado para capturar ideias, insights, problemas (issues) e notas referentes a vários projetos e facetas da vida (como Registoo, Pictae, Vox, Historuja, Moot, Widback, anotações pessoais e do trabalho).
+O **Brain** é o sistema operacional pessoal do Gabriel — hub central para capturar ideias, insights, issues, tarefas e registros de todas as áreas de vida e projetos ativos.
 
-O fluxo de funcionamento é centrado em Inteligência Artificial: o usuário fornece o input (via CLI, Telegram ou voz) e o **Hermes Agent** processa esse conteúdo, formata-o como Markdown padronizado, organiza na pasta do workspace (projeto) correto e realiza o commit automático no repositório Git usando uma skill customizada (`brain-workspace`).
+O fluxo é centrado em IA: o usuário fornece input (Telegram, voz, CLI) → o **Hermes Agent** processa, classifica e salva em Markdown estruturado → commit automático no Git.
 
-A infraestrutura é hospedada em um container VPS rodando o Hermes Agent alimentado por um LLM (`deepseek-v3.2`).
+A estrutura segue o **modelo PARA** (`_area/`, `_projeto/`, `_inbox/`), com organização semântica por contexto de vida e projeto.
+
+---
+
+## Estrutura do Vault
+
+```text
+brain/
+│
+├── _area/            ← Áreas de vida permanentes (trabalho, empreendedor, pessoal, financeiro)
+├── _projeto/         ← Projetos ativos com ciclo de vida definido
+├── _inbox/           ← Captura rápida sem classificação — fallback padrão
+└── _docs/            ← Documentação do sistema Brain
+    └── plans/        ← Planos de implementação dos agentes
+```
+
+## Áreas de Vida
+
+| Pasta | Descrição |
+|---|---|
+| `_area/trabalho/` | Trabalho CLT ou freelance (tarefas, logs, refs técnicas) |
+| `_area/empreendedor/` | Gestão dos produtos SaaS pessoais |
+| `_area/pessoal/` | Vida pessoal, saúde, família, cotidiano |
+| `_area/financeiro/` | Controle financeiro pessoal e MEI |
+
+## Projetos Ativos
+
+| Pasta | Descrição |
+|---|---|
+| `_projeto/registoo/` | PWA de registro de atendimentos domiciliares |
+| `_projeto/pictae/` | SaaS de galerias premium para fotógrafos |
+| `_projeto/historuja/` | SaaS de histórias sociais para neurodivergentes |
+| `_projeto/vox/` | App de captura de notas (planejamento futuro) |
+| `_projeto/brain/` | O próprio Brain como produto (Moot) |
+| `_projeto/widback/` | Solução de feedback/bugs para apps web |
+
+---
 
 ## Planos de Implementação
 
-Todos os planos de implementação e reestruturação gerados por agentes IA para o Brain devem ser salvos no diretório `_docs/plans/`.
-Cada plano deve incluir, obrigatoriamente, um Frontmatter com data, status e tags.
+Todos os planos gerados por agentes IA devem ser salvos em `_docs/plans/` com frontmatter obrigatório:
 
-**Formato exigido:**
 ```yaml
 ---
 title: Título do Plano
@@ -21,28 +55,6 @@ tags: [plan, tag1, tag2]
 ---
 ```
 
-## Estrutura do Vault
+---
 
-As notas e documentos são armazenados e organizados de forma automática em repositórios categorizados por workspace. A estrutura básica de pastas funciona da seguinte maneira:
-
-```text
-brain/
-├── CONTEXT.md
-├── README.md
-├── <workspace>/
-│   ├── insights/
-│   ├── issues/
-│   └── backlog/
-```
-
-- **Insights**: Aprendizados, descobertas, ideias e notas em geral.
-- **Issues**: Bugs, problemas e tarefas técnicas.
-- **Backlog**: Funcionalidades e melhorias futuras planejadas para o projeto.
-
-## Workspaces Ativos
-
-- `registoo`: PWA de registro de atendimentos domiciliares (terapia infantil).
-- `pictae`: SaaS de galerias de fotos para fotógrafos profissionais.
-- `vox`: App de captura de notas e ideias (futuro produto).
-- `pessoal`: Notas e ideias pessoais.
-- `trabalho`: Sistema .NET/SQL Server corporativo.
+> Para entender a infraestrutura completa, leia [`CONTEXT.md`](./CONTEXT.md).
