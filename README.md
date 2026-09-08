@@ -6,6 +6,21 @@ O fluxo de funcionamento é centrado em Inteligência Artificial: o usuário for
 
 A infraestrutura é hospedada em um container VPS rodando o Hermes Agent alimentado por um LLM (`deepseek-v3.2`).
 
+## Planos de Implementação
+
+Todos os planos de implementação e reestruturação gerados por agentes IA para o Brain devem ser salvos no diretório `_docs/plans/`.
+Cada plano deve incluir, obrigatoriamente, um Frontmatter com data, status e tags.
+
+**Formato exigido:**
+```yaml
+---
+title: Título do Plano
+date: YYYY-MM-DD
+status: draft | approved | completed
+tags: [plan, tag1, tag2]
+---
+```
+
 ## Estrutura do Vault
 
 As notas e documentos são armazenados e organizados de forma automática em repositórios categorizados por workspace. A estrutura básica de pastas funciona da seguinte maneira:

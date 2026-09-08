@@ -18,6 +18,23 @@ Sistema operacional pessoal de Gabriel — hub central para capturar ideias, ins
 
 ---
 
+## Planos de Implementação
+
+Todos os planos de implementação e reestruturação gerados por agentes IA para o Brain devem ser salvos no diretório `_docs/plans/`.
+Cada plano deve incluir, obrigatoriamente, um Frontmatter com data, status e tags.
+
+**Formato exigido:**
+```yaml
+---
+title: Título do Plano
+date: YYYY-MM-DD
+status: draft | approved | completed
+tags: [plan, tag1, tag2]
+---
+```
+
+---
+
 ## Infraestrutura
 
 | Item | Detalhe |
