@@ -42,40 +42,59 @@ O arquivo de teste em `registoo/insight/` pode ser movido manualmente se quiser 
 
 ## Próximos passos (em ordem de prioridade)
 
-### 1. Auto-sync Git (push e pull automáticos)
+### 1. Auto-sync Git (pull + push automáticos)
 
-**Objetivo:** cada nota salva pelo Hermes deve ser automaticamente pushada pro GitHub. E ao iniciar uma sessão, o Hermes deve fazer pull pra garantir que está com o vault atualizado.
+**Objetivo:** manter o repositório do Brain sincronizado automaticamente entre a VPS (onde o Hermes cria notas) e o GitHub (onde commits locais do Gabriel também chegam).
 
-**O que explorar:**
+#### Por que não usar apenas `git push`?
 
-O Hermes tem suporte nativo a cron jobs. Comandos úteis:
+O Brain é editado de **dois lados independentes**:
+- 🤖 **VPS (Hermes):** cria notas novas em `insights/`, `issues/`, `backlog/`
+- 🖥️ **Local (Gabriel):** edita documentação (`README.md`, `CONTEXT.md`, `HANDOFF.md`) e faz push direto pro GitHub
+
+Se o cron fizer apenas `git push` na VPS e o Gabriel já tiver pushado commits do lado local, o push **vai falhar** porque o `main` remoto terá commits que a VPS não conhece. O Git se recusa a fazer push em branches divergentes.
+
+Além disso, o pull originalmente estava atrelado ao início de uma sessão interativa com o Hermes — mas o cron roda independentemente, sem garantia de que uma sessão foi aberta antes.
+
+#### Decisão: `pull --rebase` antes de cada `push`
+
+A solução é unificar tudo em um único cron job que **sempre puxa antes de empurrar**:
+
 ```bash
-hermes cron list          # lista cron jobs ativos
-hermes cron add           # adiciona um novo cron job
+hermes cron add "*/15 * * * *" "git -C ~/brain pull --rebase origin main && git -C ~/brain push origin main"
 ```
 
-**Estratégia sugerida:** dois cron jobs.
+**Por que `--rebase` em vez de `pull` simples (merge)?**
+- `git pull` (merge) criaria um commit de merge a cada sincronização, poluindo o histórico com mensagens como `Merge branch 'main' of github.com/...` a cada 15 minutos.
+- `git pull --rebase` reaplica os commits locais da VPS **em cima** dos commits vindos do GitHub, resultando em um histórico linear e limpo — como se tudo tivesse sido feito em sequência.
 
-**Cron 1 — Auto-push a cada 15 minutos:**
-```bash
-hermes cron add "*/15 * * * *" "git -C ~/brain push origin main"
+**Por que `&&` entre os comandos?**
+- O operador `&&` garante que o `push` **só executa se o `pull` der certo**. Se houver um conflito real (dois lados editaram o mesmo trecho do mesmo arquivo), o processo para ali sem corromper nada.
+
+**Risco de conflito real é baixo** porque os dois lados trabalham em arquivos diferentes: o Hermes cria arquivos novos, o Gabriel edita documentação existente. O rebase resolve isso automaticamente.
+
+#### Estratégia complementar — Pull ao iniciar sessão
+
+Mesmo com o cron, ainda vale adicionar um pull explícito ao iniciar uma sessão interativa com o Hermes. Isso garante que ele esteja 100% atualizado antes de qualquer interação. Opções:
+
+1. Adicionar no `SOUL.md` como instrução de comportamento:
+```
+Ao iniciar qualquer sessão, execute: git -C ~/brain pull origin main
 ```
 
-**Cron 2 — Pull ao iniciar sessão (via hook):**
-Verificar se o Hermes tem suporte a hooks de início de sessão:
+2. Verificar se o Hermes suporta hooks de início de sessão:
 ```bash
 hermes hooks list
 cat ~/.hermes/config.yaml | grep hook
 ```
 
-Alternativa: adicionar pull no próprio SOUL.md como instrução de comportamento:
-```
-Ao iniciar qualquer sessão, execute: git -C ~/brain pull origin main
-```
+#### Padrão reutilizável para projetos futuros
 
-**Investigar também:**
-- Se o Hermes já faz push automaticamente após commits (verificar o output dos próximos testes)
-- Se há configuração de `post-commit` hook do Git que pode chamar o push
+Este padrão de sync bidirecional via cron pode ser aplicado em qualquer projeto onde múltiplos ambientes (CI/CD, agentes, máquinas locais) escrevem no mesmo repositório Git:
+1. Nunca faça push cego — sempre `pull --rebase` antes
+2. Use `&&` para encadear e evitar push em estado inconsistente
+3. Estruture o projeto para que cada lado escreva em caminhos diferentes (reduz conflitos a quase zero)
+4. Mantenha o intervalo de sync curto (15 min) para minimizar a janela de divergência
 
 ---
 
