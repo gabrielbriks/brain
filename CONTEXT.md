@@ -28,6 +28,10 @@ Sistema operacional pessoal de Gabriel — hub central para capturar ideias, ins
 | VPS | Servidor Europa (container Docker) |
 | Usuário | container@hermes |
 
+> [!WARNING]
+> **ATENÇÃO (Limitação do Ambiente):** A infraestrutura na PrimeClaws é um **Container Docker**, o que significa que **NÃO possui Systemd** (systemctl). Qualquer tentativa de instalar serviços nativos do Linux (como `sudo systemctl`) vai falhar.
+> Para manter processos em background (como o gateway do Hermes), é necessário rodar via `tmux`, `screen`, `nohup` dentro do terminal `ttyd`, ou, idealmente, configurar o comando principal (`hermes gateway run`) nas opções de **Startup** no dashboard da PrimeClaws, para que o container inicie o serviço automaticamente.
+
 ---
 
 ## Repositório Git
