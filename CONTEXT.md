@@ -133,11 +133,14 @@ hermes update                   # atualiza o Hermes
 
 ## Projetos de Gabriel (contexto geral)
 
-Gabriel é desenvolvedor .NET/SQL Server pleno e MEI com dois produtos:
+Gabriel é desenvolvedor Fullstack pleno e MEI com alguns produtos e projetos:
 - **Registoo** — PWA de registro de atendimentos (terapia infantil/saúde)
-- **Pictae** — SaaS de galerias premium para fotógrafos
 - **Vox** — Em planejamento (captura de notas, futuro produto)
+- **Pictae** — SaaS de galerias premium para fotógrafos
+- **Historuja** SaaS de geração de histórias sociais para serem usadas em intervenções com pessoas neurodivergentes (crianças e adultos). 
 - **Brain** — Este sistema (uso pessoal + possível produto futuro)
+  - **Moot** — Site institucional do Brain (futuro produto)
+- **Widback** - (Em planejamento) Uma solução pessoal mas já engatilhada para virar um SaaS, que possibilita o registro de feedbacks e bugs de usuarios em aplicações web. Sendo possivel integra-la em qualquer aplicação web através de um script. (uso pessoal + produto futuro)
 
 ---
 
