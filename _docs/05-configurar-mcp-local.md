@@ -1,23 +1,29 @@
 ---
-title: Expor o Vault via MCP (Claude Code e Gemini)
+title: Configuração Global do MCP (Antigravity IDE, agy CLI e Claude Code)
 date: 2026-09-08
 type: tutorial
-tags: [mcp, claude-code, gemini, integração, local]
+tags: [mcp, antigravity, agy-cli, claude-code, integracao, local]
 ---
 
-# Expor o Brain via MCP (Model Context Protocol)
+# Configuração Fluida do MCP em Múltiplos Ambientes
 
-O objetivo final do Brain é que todo o conhecimento gerado e armazenado nele (suas ideias, issues e planejamento) esteja acessível enquanto você estiver programando em outros projetos (como Registoo, Pictae, etc).
+O objetivo desta etapa é permitir que você consulte e alimente o **Brain** a partir de qualquer projeto ou ferramenta do seu fluxo diário:
+- **Antigravity IDE**
+- **Antigravity CLI (`agy`)**
+- **Claude Code (Extensão no VS Code e CLI)**
 
-O protocolo **MCP (Model Context Protocol)** permite que IAs como o Claude Code ou o Gemini consultem ferramentas e pastas externas.
+Como o vault local já está em `/home/gabriel/www/brain` e sincronizado via Git com a VPS e o GitHub, a melhor abordagem é expor essa pasta localmente via o servidor oficial `@modelcontextprotocol/server-filesystem`.
 
-Como nós já resolvemos a sincronização do Brain com o seu computador local através do Git (Passo 1), **não precisamos** fazer um túnel complexo até a VPS. O seu repositório local (`/home/gabriel/www/brain`) já tem tudo o que precisamos.
+Abaixo está o passo a passo para configurar de forma **global** (uma única vez por máquina), para que funcione em qualquer pasta ou projeto sem atrito.
 
-## Configurando no Claude Code
+---
 
-Para permitir que o Claude Code (ou o Gemini) leia suas anotações do Brain quando você estiver trabalhando no código do seu projeto (por exemplo, na pasta do Registoo), basta configurar o servidor oficial de Sistema de Arquivos (Filesystem) do MCP.
+## 1. Antigravity IDE & Antigravity CLI (`agy`)
 
-Dentro da pasta do projeto que você estiver desenvolvendo, crie ou edite o arquivo de configuração do MCP (no Claude Code é o arquivo `.claude.json` ou `claude.json`, dependendo da versão):
+Tanto o Antigravity IDE quanto o CLI (`agy`) compartilham o mesmo motor e leem a mesma configuração global de MCP em `~/.gemini/config/mcp_config.json`.
+
+### Configuração Global:
+Edite o arquivo global `~/.gemini/config/mcp_config.json` e adicione o servidor `brain-vault`:
 
 ```json
 {
@@ -34,10 +40,58 @@ Dentro da pasta do projeto que você estiver desenvolvendo, crie ou edite o arqu
 }
 ```
 
-### O que isso faz?
-Sempre que você abrir o Claude Code nesse projeto e perguntar algo como *"Consulte minhas notas no Brain sobre a arquitetura do Registoo"*, ele usará esse servidor local para vasculhar a pasta `/home/gabriel/www/brain`, ler os arquivos Markdown relevantes que o Hermes salvou lá, e te dar a resposta!
+> [!TIP]
+> Caso você já tenha outros servidores (como o `chrome-devtools-mcp`), basta adicionar a chave `"brain-vault"` dentro de `"mcpServers"`.
 
-## Vantagens dessa abordagem local
-1. **Velocidade:** A leitura é instantânea, pois os arquivos já estão no SSD da sua máquina local.
-2. **Offline:** Funciona mesmo sem internet ou se a VPS estiver fora do ar (graças ao clone local do Git).
-3. **Segurança:** Não exige abrir portas na VPS ou criar túneis (como Pinggy ou Ngrok) que poderiam expor seus dados na internet.
+### Como funciona no Antigravity:
+- Uma vez salvo, qualquer janela do Antigravity IDE ou comando no terminal `agy` ganha imediatamente as ferramentas do MCP filesystem (`read_file`, `write_file`, `list_directory`, etc.).
+- Ao trabalhar no projeto `registoo`, por exemplo, você pode pedir diretamente ao agente:
+  > *"Consulte no brain-vault as notas sobre a arquitetura do Registoo e me explique como autenticamos usuários."*
+
+---
+
+## 2. Claude Code (Extensão VS Code & CLI)
+
+O Claude Code permite definir servidores MCP no escopo global de usuário (`user scope`), garantindo que a ferramenta fique ativa em qualquer workspace aberto na extensão do VS Code ou no terminal.
+
+### Opção A: Via CLI do Claude Code (Recomendada)
+No seu terminal, execute:
+
+```bash
+claude mcp add --scope user brain-vault -- npx -y @modelcontextprotocol/server-filesystem /home/gabriel/www/brain
+```
+
+Isso registrará o servidor globalmente na sua configuração de usuário (`~/.claude.json`).
+
+### Opção B: Por Projeto (Arquivo `.mcp.json`)
+Caso prefira que o MCP seja explícito apenas em um repositório específico (ex: na raiz do `registoo` ou do próprio `brain`), crie um arquivo `.mcp.json` na raiz do projeto:
+
+```json
+{
+  "mcpServers": {
+    "brain-vault": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/home/gabriel/www/brain"
+      ]
+    }
+  }
+}
+```
+
+---
+
+## 3. Sincronização Bidirecional (O Ciclo Completo)
+
+Com o MCP configurado localmente:
+1. **Leitura:** As IAs locais (Antigravity ou Claude) leem diretamente do disco `/home/gabriel/www/brain`.
+2. **Escrita:** Quando elas criam notas novas no vault, os arquivos são salvos localmente.
+
+### Como garantir que a VPS (Hermes / Telegram) veja as notas criadas localmente?
+Na VPS, o cron já roda o auto-sync a cada minuto.
+Para que a sua máquina local suba as anotações criadas pelo MCP:
+- Você pode instruir o próprio agente durante o chat:
+  > *"Salve a nota sobre X no brain-vault e faça o commit/push no repositório."*
+- Ou criar um atalho / alias no seu `.zshrc` ou um cron local no WSL para fazer `git -C ~/www/brain pull --rebase origin main && git -C ~/www/brain push origin main`.
