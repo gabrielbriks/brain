@@ -19,26 +19,29 @@ O primeiro passo é criar o bot diretamente pelo aplicativo do Telegram:
 4. Escolha um **username** (precisa terminar com `bot`, ex: `gabriel_brain_bot`).
 5. Ao finalizar, o BotFather fornecerá um **Token de Acesso** (parecido com `123456789:ABCdefGHIjkl...`). Guarde este token.
 
-## 2. Configurar o Token na VPS
+## 2. Configurar o Hermes via Setup Interativo
 
-Acesse o terminal da sua VPS (onde o Hermes está rodando) e adicione o token como uma variável de ambiente para o Hermes.
-
-```bash
-# Crie ou adicione ao arquivo .env do Hermes
-echo 'TELEGRAM_BOT_TOKEN="SEU_TOKEN_AQUI"' >> ~/.hermes/.env
-```
-*(Não esqueça de substituir o `SEU_TOKEN_AQUI` pelo token real fornecido pelo BotFather).*
-
-## 3. Ativar o Canal no Hermes
-
-Ainda no terminal da VPS, ative o canal do Telegram com o comando:
+A integração de mensagens (Telegram, Slack, etc.) acontece através do módulo **Gateway** do Hermes.
+Acesse o terminal da sua VPS (onde o Hermes está rodando) e execute o assistente de configuração:
 
 ```bash
-hermes channel telegram
+hermes gateway setup
+```
+1. Selecione **Telegram** quando solicitado.
+2. O assistente pedirá o **Bot Token** (que você pegou no passo anterior).
+3. O assistente pedirá também o seu **User ID** do Telegram (para garantir que só você tenha acesso ao seu Brain). *Dica: você pode descobrir seu User ID mandando uma mensagem para o bot `@userinfobot` no Telegram.*
+
+O setup vai preencher automaticamente o arquivo `~/.hermes/.env` com as variáveis corretas (`TELEGRAM_BOT_TOKEN` e `TELEGRAM_ALLOWED_USERS`).
+
+## 3. Iniciar o Gateway
+
+Ainda no terminal da VPS, ative o gateway do Hermes com o comando:
+
+```bash
+hermes gateway
 ```
 
-> **Aviso de Dependência:** O Hermes utiliza a biblioteca `python-telegram-bot` por baixo dos panos. Se o comando acima retornar um erro de "módulo não encontrado", instale a dependência manualmente rodando `pip install python-telegram-bot` e tente novamente.
-
+*(Nota: Você pode querer rodar este comando em background usando `nohup`, `tmux`, `screen` ou configurando um serviço do `systemd` para que o bot continue rodando mesmo após você fechar o console da VPS).*
 ## 4. Testar o Funcionamento
 
 Assim que ativado, o bot já deve estar ouvindo.

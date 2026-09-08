@@ -104,15 +104,14 @@ Este padrão de sync bidirecional via cron pode ser aplicado em qualquer projeto
 
 **Comandos:**
 ```bash
-hermes channel telegram
+hermes gateway setup
+hermes gateway
 ```
-
-O doctor já avisou que `python-telegram-bot` não está instalado. O Hermes provavelmente instala automaticamente ao configurar o canal.
 
 **O que precisará:**
 - Criar um bot no Telegram via @BotFather
-- Obter o `TELEGRAM_BOT_TOKEN`
-- Configurar em `~/.hermes/.env`
+- Obter o `TELEGRAM_BOT_TOKEN` e o seu User ID
+- Rodar o assistente (`setup`) para que ele configure o `~/.hermes/.env` e depois rodar o `hermes gateway` para iniciar o bot.
 
 **Para áudio:** verificar se o Hermes tem suporte a transcrição de voz no canal Telegram (o v0.20.0 adicionou TTS/voice — verificar se inclui STT também).
 
