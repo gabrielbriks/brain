@@ -1,7 +1,7 @@
 ---
 title: Plano de Reestruturação Semântica do Vault
 date: 2026-09-08
-status: approved
+status: completed
 tags: [plan, architecture, para-model, refactor]
 ---
 

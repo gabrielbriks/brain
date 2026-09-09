@@ -9,9 +9,9 @@ tags: [casa, estoque, mantimentos]
 
 > Atualizado pelo Hermes via Telegram. Informe quando um item acabar ou estiver acabando.
 
-| Item          | Status       | Ação          |
-|---------------|--------------|---------------|
-| Arroz         | ✅ OK        |               |
-| Feijão        | ✅ OK        |               |
-| Azeite        | ✅ OK        |               |
-| Café          | ✅ OK        |               |
+| Item          | Status       | Quantidade         | Ação          |
+|---------------|--------------|--------------------|---------------|
+| Arroz         | ✅ OK        |                    |               |
+| Feijão        | ✅ OK        |                    |               |
+| Azeite        | ✅ OK        |                    |               |
+| Café          | ✅ OK        |                    |               |
