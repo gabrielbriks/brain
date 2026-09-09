@@ -2,10 +2,10 @@
 date: 2026-09-09
 workspace: registoo
 type: insight
-tags: [registro, signature-plan, importacao, passers-by]
+tags: [registro, widget, widback, evolucao]
 ---
 
-# Integração de evoluções com EDGET
+# Integração de evoluções com WIDGET
 
 Insight sobre a possibilidade de registrar evoluções e implementações no sistema.
 
@@ -16,8 +16,8 @@ Registrar as evoluções e versões implementadas como um tipo de "bug record" n
 2. **Referência futura**: Usar como base para novas implementações
 3. **Link com EDGET**: Conectar essas registrações com o projeto EDGET
 
-## Integração com EDGET
-O EDGET (External Data Exchange Tool?) poderia servir como canal:
+## Integração com WIDGET
+O WIDGET (projeto widback) poderia servir como canal:
 - Bridge entre as implementações concluídas e o sistema de registro
 - Forma de documentar evoluções para consulta posterior
 - Base para migração automática de funcionalidades
@@ -33,7 +33,7 @@ O EDGET (External Data Exchange Tool?) poderia servir como canal:
 3. Criar script de sincronização automática
 
 ## Tags necessárias
-- #edget
+- #widget
 - #evolucao
 - #registro
 - #migracao
