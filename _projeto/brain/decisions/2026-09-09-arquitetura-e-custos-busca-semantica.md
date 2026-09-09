@@ -2,32 +2,35 @@
 date: 2026-09-09
 projeto: brain
 type: decision
-status: open
-tags: [arquitetura, custos, embeddings, local-vs-cloud, akita]
+status: closed
+tags: [arquitetura, custos, embeddings, local-vs-cloud, hardware]
 ---
 
 # Decisão: Arquitetura de Custos e Embeddings Locais (Busca Semântica)
 
 **Contexto:**
-Durante a análise para implementar a Busca Semântica no Brain OS (hospedado num container PrimeClaws de $9.99/mês), estudamos a atualização `ai-memory 2.0` de Fábio Akita, que introduziu **Embeddings Locais por Padrão**. Precisávamos avaliar a viabilidade técnica disso na nossa VPS limitada e projetar os custos.
+Durante a análise para implementar a Busca Semântica no Brain OS, estudamos a atualização `ai-memory 2.0` de Fábio Akita, que introduziu **Embeddings Locais por Padrão**. Precisávamos avaliar a viabilidade técnica disso na nossa VPS PrimeClaws de $9.99/mês.
 
-## As Duas Opções de Arquitetura
+## O Fator Decisivo: Hardware
+Descobrimos que a configuração do plano PrimeClaws entrega **2 vCPU Intel i9, 4GB RAM e 50GB SSD**. Esse hardware é excepcionalmente robusto para o preço.
+
+## As Duas Opções de Arquitetura Avaliadas
 
 ### Opção 1: Abordagem "Akita" (100% Local)
-Rodar modelos matemáticos focados e minúsculos (ex: `all-MiniLM-L6-v2` ou `nomic-embed-text`) diretamente na CPU da VPS e salvar em banco local via arquivo (ex: ChromaDB ou LanceDB).
+Rodar modelos matemáticos focados (ex: `all-MiniLM-L6-v2`) diretamente na CPU da VPS e salvar em banco local via arquivo (ChromaDB).
 - **Custos adicionais:** $0.00
-- **Consumo de Hardware:** ~150MB a 300MB de RAM adicionais no container da PrimeClaws.
-- **Prós:** Privacidade máxima (Air-gapped architecture para a memória), sem dependência de chaves de API para leitura/escrita.
+- **Consumo de Hardware:** ~200MB a 300MB de RAM.
+- **Prós:** Privacidade máxima (Air-gapped), zero latência de rede, zero custo de API.
 
 ### Opção 2: Abordagem "Cloud-Native API"
-Usar a API da OpenAI (`text-embedding-3-small`) ou equivalente para gerar o vetor e hospedar em um Vector DB serverless (Pinecone, Upstash).
-- **Custos adicionais:** ~$0.02 a cada 1 milhão de tokens (estimativa de < $0.10 por ANO para um usuário final). O Vector DB é coberto pela Free Tier permanente (Pinecone/Upstash).
-- **Consumo de Hardware:** 0MB na VPS.
-- **Prós:** Preserva 100% dos recursos limitados da VPS PrimeClaws. Modelos de API geram vetores com mais dimensões e maior precisão contextual que os modelos minúsculos locais.
+Usar a API da OpenAI (`text-embedding-3-small`) para gerar o vetor e hospedar em um Vector DB serverless (Pinecone, Upstash).
+- **Custos adicionais:** ~$0.10 por ano + Free tier de banco.
+- **Consumo de Hardware:** 0MB.
+- **Prós:** Terceiriza o processamento totalmente.
 
-## Conclusão Atual
-**O PrimeClaws é suficiente para ambas as abordagens**, provando que não precisamos fazer upgrade ou mudar de servidor.
+## Conclusão e Veredito (Status: Closed)
+A **Opção 1 (100% Local)** é a vencedora indiscutível.
 
-A decisão de qual caminho seguir na implementação dependerá estritamente de quanto de memória RAM o Hermes já está consumindo atualmente no container da PrimeClaws:
-- Se houver `> 300MB` de RAM livres de sobra, o caminho Local (Opção 1) é viável e adotaremos a filosofia do `ai-memory 2.0`.
-- Se a VPS estiver no gargalo de memória, adotaremos a Opção 2 (API) considerando que o custo anual de 10 centavos é economicamente trivial.
+Como a PrimeClaws nos fornece 4GB de RAM e 2 vCPUs potentes (Intel i9), dedicar ~300MB de memória para carregar o modelo de embeddings não fará nem "cócegas" na infraestrutura. 
+
+Com isso, o Brain OS será totalmente autossuficiente e privado, seguindo o padrão ouro da indústria atual para agentes locais (como o *ai-memory 2.0*), sem adicionar absolutamente nenhum custo extra à fatura de $9.99/mês.
