@@ -14,7 +14,7 @@ Registrar as evoluções e versões implementadas como um tipo de "bug record" n
 
 1. **Rastreabilidade**: Acompanhar o que foi implementado ao longo do tempo
 2. **Referência futura**: Usar como base para novas implementações
-3. **Link com EDGET**: Conectar essas registrações com o projeto EDGET
+3. **Link com WIDGET**: Conectar essas registrações com o projeto WIDGET
 
 ## Integração com WIDGET
 O WIDGET (projeto widback) poderia servir como canal:
