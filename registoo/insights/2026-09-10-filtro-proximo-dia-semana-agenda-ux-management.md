@@ -1,18 +1,21 @@
 ---
 date: 2026-09-10
-type: inbox
-tags: [agenda, filtro, ux, gestão, recorrência]
+projeto: registoo
+type: insight
+status: open
+priority: medium
+tags: [agenda, filtro, ux, gestao, recorrencia]
 ---
 
-# Nova intenção para o projeto Agenda: filtro do próximo dia da semana
+# Nova intenção para a tela de Agenda no registoo: filtro do próximo dia da semana
 
 **Objetivo**  
-Incluir um filtro para o *próximo dia da semana* no projeto digital Agenda, melhorando a UX e ajudando a gestão.
+Incluir um filtro para o *próximo dia da semana* na tela de Agenda do registoo, melhorando a UX e ajudando a gestão.
 
 **Motivação**  
 - Usuários (incluindo advogados?) precisam de uma melhor experiência ao visualizar/filtrar tarefas do dia seguinte.  
 - Gestão precisa de ferramentas para **gerenciar melhor a agenda** na raiz da recorrência.  
-- Desafios na **verdade da recorrência** (possivelmente inconsistências ou gaps nos dados recorrentes) devem ser tratados.
+- Desafios na **verdade da recorrência** (possíveis inconsistências ou gaps nos dados recorrentes) devem ser tratados.
 
 **Proposta**  
 1. Adicionar filtro UI que permita selecionar "amanhã" (próximo dia da semana).  
