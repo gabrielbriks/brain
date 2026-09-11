@@ -36,6 +36,17 @@ tags: [busca-semantica, embeddings, hermes, chromadb, all-minilm, plano]
   - No repositório Git local: criar pasta `~/brain/.chromadb/` com `.gitignore` cobrindo-a.
   - *Motivo:* O banco de vetores é gerado localmente e nunca deve ser commitado no Git (é regenerável e pode ficar grande).
 
+- [ ] **T0.4 — Auditar uso atual de CPU na VPS** ⚠️ *Novo*
+  - Pedir ao Gabriel para rodar na VPS:
+    ```bash
+    top -bn1 | head -20
+    # ou, se disponível:
+    htop
+    ```
+  - Registrar o baseline de uso de CPU em repouso (sem carga extra).
+  - *Contexto:* A VPS tem 2 vCPUs (Intel i9), o que representa um teto de **200%** de CPU no painel do PrimeClaws. Cada core físico vale 100% — logo, 200% = os dois cores em uso total simultâneo. O modelo `all-MiniLM-L6-v2` causa picos durante a indexação (mas curtos, de segundos). Em uso contínuo (buscas), o impacto é quase zero.
+  - *Critério de sucesso:* CPU em repouso abaixo de 30% (ou seja, há folga suficiente para absorver picos de indexação sem throttling).
+
 ---
 
 ### Fase 1 — Instalação das Dependências na VPS
@@ -198,20 +209,35 @@ tags: [busca-semantica, embeddings, hermes, chromadb, all-minilm, plano]
 
 ---
 
-### Fase 4 — Automação da Indexação (Cron)
-**Objetivo:** Garantir que novas notas criadas pelo Hermes sejam indexadas automaticamente.
+### Fase 4 — Automação da Indexação (Cron) *(Revisada)*
+**Objetivo:** Garantir que novas notas criadas pelo Hermes sejam indexadas automaticamente, **sem causar picos de CPU em horários sensíveis**.
 
-- [ ] **T4.1 — Criar cron para re-indexação automática**
-  - Configurar um cron job na VPS para rodar `indexar.py` a cada 30 minutos.
+> **Contexto do teto de 200% de CPU:** Como a VPS tem 2 vCPUs com teto de 200% e a PrimeClaws compartilha infraestrutura, picos de CPU em horários de alto uso do servidor podem sofrer throttling (o provedor desacelera o processo). A estratégia é agendar a indexação em **janelas de baixo uso**: madrugada e início de tarde.
+
+- [ ] **T4.1 — Criar cron para re-indexação em horários de baixo uso** *(Alterado)*
+  - Em vez de rodar a cada 30 minutos corridos, configurar dois horários fixos de baixo tráfego.
   - Pedir ao Gabriel para adicionar via `crontab -e`:
     ```
-    */30 * * * * python3 ~/brain/.scripts/indexar.py >> ~/brain/.scripts/indexar.log 2>&1
+    # Re-indexa o Brain às 3h da manhã e às 15h (horário de Brasília)
+    0 3 * * * python3 ~/brain/.scripts/indexar.py >> ~/brain/.scripts/indexar.log 2>&1
+    0 15 * * * python3 ~/brain/.scripts/indexar.py >> ~/brain/.scripts/indexar.log 2>&1
     ```
-  - *Nota:* O script usa `upsert`, portanto re-indexar uma nota já existente é seguro (idempotente).
+  - *Motivo:* A indexação de um vault pequeno como o Brain (<500 notas) dura poucos segundos. Rodar 2x/dia é mais que suficiente para manter os vetores atualizados sem pressionar a CPU desnecessariamente.
+  - *Nota:* O script usa `upsert`, portanto re-indexar uma nota já existente é sempre seguro (idempotente).
 
-- [ ] **T4.2 — Verificar o cron após 30 minutos**
-  - Checar o log: `tail -20 ~/brain/.scripts/indexar.log`
-  - *Critério de sucesso:* Log mostra execução bem-sucedida sem erros.
+- [ ] **T4.2 — Opção de indexação manual (on-demand)**
+  - Para casos em que Gabriel quiser indexar imediatamente após criar uma nota importante (sem esperar o cron), pode rodar manualmente:
+    ```bash
+    python3 ~/brain/.scripts/indexar.py
+    ```
+  - O Hermes também pode acionar isso via comando no Telegram futuramente (ex: *"Hermes, indexa o Brain agora"*).
+
+- [ ] **T4.3 — Verificar o cron na primeira execução**
+  - No dia seguinte à configuração, checar o log:
+    ```bash
+    tail -20 ~/brain/.scripts/indexar.log
+    ```
+  - *Critério de sucesso:* Log mostra execução bem-sucedida, sem erros, com o total de notas indexadas. Tempo de execução deve ser inferior a 60 segundos.
 
 ---
 
