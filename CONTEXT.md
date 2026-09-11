@@ -73,6 +73,7 @@ brain/
 │       └── logs/
 │
 ├── _projeto/                     ← PROJETOS ATIVOS (ciclo de vida definido)
+│   ├── dna-zen-tech/             ← Sistema transversal de UI/UX & Skill de Design
 │   ├── registoo/                 ← PWA de registro de atendimentos domiciliares
 │   ├── pictae/                   ← SaaS de galerias premium para fotógrafos
 │   ├── historuja/                ← SaaS de histórias sociais para neurodivergentes
@@ -104,6 +105,7 @@ brain/
 
 | Projeto | Pasta | Status | Descrição |
 |---|---|---|---|
+| DNA Zen Tech | `_projeto/dna-zen-tech/` | Ativo | Sistema transversal de UI/UX & Skill de Design |
 | Registoo | `_projeto/registoo/` | Ativo | PWA de registro de atendimentos domiciliares |
 | Pictae | `_projeto/pictae/` | Ativo | SaaS de galerias premium para fotógrafos |
 | Historuja | `_projeto/historuja/` | Ativo | SaaS de histórias sociais para neurodivergentes |
