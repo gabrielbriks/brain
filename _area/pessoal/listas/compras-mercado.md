@@ -9,4 +9,4 @@ tags: [casa, compras, mercado]
 
 > Lista de itens para comprar. Peça ao Hermes via Telegram para adicionar ou remover itens.
 
-- [ ] (lista vazia — adicione itens conforme necessidade)
+- [ ] Pilhas 2A e 3A — adicionar no estoque de casa (está acabando)
