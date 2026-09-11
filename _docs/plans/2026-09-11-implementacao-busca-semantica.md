@@ -288,6 +288,30 @@ tags: [busca-semantica, embeddings, hermes, chromadb, all-minilm, plano]
 
 ---
 
+### Fase 7 — Unificação via MCP Server *(Roadmap Futuro)*
+**Objetivo:** Expor o `buscar.py` como um servidor MCP para que a **Antigravity CLI** também possa usar a busca semântica vetorial, além do Hermes/Telegram.
+
+> **Contexto (descoberta arquitetural de 2026-09-11):** O Brain OS opera em dois contextos distintos de acesso à IA. O ChromaDB fica isolado na VPS (ignorado pelo Git), então a Antigravity CLI não consegue consultá-lo diretamente. Hoje, a Antigravity compensa isso com o raciocínio semântico natural do LLM via MCP `brain-vault`. A Fase 7 fecha esse gap, unificando os dois mundos num único motor de busca. Ver: `_projeto/brain/insights/2026-09-11-dois-mundos-de-busca-hermes-vs-antigravity.md`.
+
+- [ ] **T7.1 — Converter `buscar.py` em MCP Server**
+  - Transformar o script de busca num servidor HTTP leve (ex: usando `fastapi` ou `flask`) respondendo no padrão MCP.
+  - Expor um endpoint: `POST /buscar` com body `{ "query": "...", "top": 5 }`.
+  - O servidor deve rodar como processo em background na VPS (via `tmux` ou `nohup`, sem `systemd`).
+
+- [ ] **T7.2 — Configurar acesso seguro**
+  - Definir como a Antigravity CLI vai se comunicar com o MCP Server na VPS (SSH tunnel ou endpoint público com autenticação por token).
+
+- [ ] **T7.3 — Registrar o MCP no perfil da Antigravity**
+  - Adicionar o novo servidor MCP nas configurações do Antigravity CLI para que ele apareça como ferramenta disponível nas conversas.
+
+- [ ] **T7.4 — Testar busca vetorial direto da Antigravity CLI**
+  - Confirmar que a CLI retorna notas relevantes mesmo com palavras completamente diferentes das do arquivo original.
+  - *Critério de sucesso:* Resultado vem do ChromaDB (vetor real), não do raciocínio textual do LLM.
+
+> ⚠️ *Esta fase é a mais complexa do projeto. Deve ser executada somente após a Fase 6 estar estável por pelo menos 2 semanas.*
+
+---
+
 ## Resumo de Custos e Impacto na VPS
 
 | Item                      | Detalhe                                     | Custo Adicional |
