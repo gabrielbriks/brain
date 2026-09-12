@@ -39,6 +39,7 @@ brain/
 | `_projeto/vox/` | App de captura de notas (planejamento futuro) |
 | `_projeto/brain/` | O próprio Brain como produto (Moot) |
 | `_projeto/widback/` | Solução de feedback/bugs para apps web |
+| `_projeto/zen-ai-workflow/` | Metodologia/mecanismo de desenvolvimento assistido por IA |
 
 ---
 
