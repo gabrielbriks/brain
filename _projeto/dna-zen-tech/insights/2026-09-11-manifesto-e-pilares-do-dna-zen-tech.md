@@ -29,6 +29,9 @@ Enquanto cada produto do ecossistema possui sua própria identidade visual e mer
 
 ## 2. Comparativo: UI Convencional vs. UI Zen Tech
 
+_Comentário Pessoal:_
+- _Esta tabela resume a aplicação pratica de alguns principios do Zen Tech, mas de forma muito focada e 她limitada ao que já aplicamos nos projetos Registoo e Pictae. A ideia é que esta tabela sirva como exemplo e ponto de partida para discussões._ 
+
 | Dimensão | Abordagem Convencional | Abordagem Zen Tech |
 |---|---|---|
 | **Espaçamento** | Telas hiper-densas, tabelas comprimidas, medo de espaço em branco. | **UI que respira.** O espaço generoso é tratado como intenção de alívio e clareza, não desperdício. |
@@ -48,6 +51,9 @@ Enquanto cada produto do ecossistema possui sua própria identidade visual e mer
 
 ### Pilar 1: Acolhimento & Conforto Cognitivo
 *A interface deve acalmar o usuário, mesmo em contextos de pressão.*
+
+_Comentário Pessoal:_
+- _A expressão "A interface deve acalmar o usuário, mesmo em contextos de pressão.", deve ser usado com cuidado, pois os produtos do ecossistema podem variar em seu propósito e aplicações, e nem todos visam necessariamente acalmar o usuário. No final das contas, a interface deve proporcionar uma experiência agradável e eficiente._
 
 1. **Ritmo Visual e "UI que Respira":** A densidade visual sobrecarrega o cérebro. No Zen Tech, cards, listas e seções possuem *paddings* generosos e áreas de descanso visual.
 2. **Geometria Suave:** Quinas afiadas aumentam subconscientemente o estado de alerta do cérebro. O padrão Zen Tech utiliza `border-radius: 1rem` (16px) para componentes de interface e `1.5rem` a `2rem` (24px a 32px) para grandes superfícies.
