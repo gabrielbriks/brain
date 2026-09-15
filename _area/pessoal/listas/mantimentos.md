@@ -24,3 +24,7 @@ tags: [casa, estoque, mantimentos]
 | Granola 500g Mais Nutri   | 🛒 Comprado | 1 un   | Aproveitar / repor quando acabar |
 | Mix açaí 2Lt Premium (SEM BANANA) | 🛒 Comprado | 1 un | Aproveitar / repor quando acabar |
 | Mix açaí 2Lt Super Premium | 🛒 Comprado | 0 un | Não foi entregue/sem estoque |
+| Acém (carne moída) | 🛒 Comprado | 3 kg | Aproveitar / congelar / repor quando acabar |
+| Músculo | 🛒 Comprado | 4 kg | Aproveitar / congelar / repor quando acabar |
+| Coxão Mole | 🛒 Comprado | 1 kg | Aproveitar / congelar / repor quando acabar |
+| Capa de Contrafilé | 🛒 Comprado | 2 kg | Aproveitar / congelar / repor quando acabar |
