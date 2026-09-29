@@ -22,7 +22,8 @@ brain/
 │   ├── trabalho/     ← Trabalho CLT/freelance
 │   ├── empreendedor/ ← Gestão dos SaaS pessoais
 │   ├── pessoal/      ← Vida pessoal, saúde, família
-│   └── financeiro/   ← Controle financeiro e MEI
+│   ├── financeiro/   ← Controle financeiro e MEI
+│   └── dev/          ← Estudos, ideias, anotações de programação
 │
 ├── _projeto/         ← Projetos ativos com ciclo de vida definido
 │   ├── registoo/     ← PWA de atendimentos domiciliares
@@ -69,7 +70,7 @@ tags: []
 ```yaml
 ---
 date: YYYY-MM-DD
-area: trabalho          # trabalho | empreendedor | pessoal | financeiro
+area: trabalho          # trabalho | empreendedor | pessoal | financeiro | dev
 type: task              # task | log | idea | ref | lista
 status: open            # open | in-progress | done | archived
 priority: medium        # low | medium | high | critical (obrigatório para task)
@@ -117,7 +118,7 @@ tags: [plan]
 | `idea` | `ideas/` | `_area/`, `_projeto/` |
 | `task` | `tasks/` | `_area/` |
 | `log` | `logs/` | `_area/` |
-| `ref` | `refs/` | `_area/trabalho/` |
+| `ref` | `refs/` | `_area/trabalho/`, `_area/dev/` |
 | `lista` | `listas/` | `_area/pessoal/` |
 | `inbox` | `_inbox/` | raiz |
 

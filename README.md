@@ -13,7 +13,7 @@ A estrutura segue o **modelo PARA** (`_area/`, `_projeto/`, `_inbox/`), com orga
 ```text
 brain/
 │
-├── _area/            ← Áreas de vida permanentes (trabalho, empreendedor, pessoal, financeiro)
+├── _area/            ← Áreas de vida permanentes (trabalho, empreendedor, pessoal, financeiro, dev)
 ├── _projeto/         ← Projetos ativos com ciclo de vida definido
 ├── _inbox/           ← Captura rápida sem classificação — fallback padrão
 └── _docs/            ← Documentação do sistema Brain
@@ -28,6 +28,7 @@ brain/
 | `_area/empreendedor/` | Gestão dos produtos SaaS pessoais |
 | `_area/pessoal/` | Vida pessoal, saúde, família, cotidiano |
 | `_area/financeiro/` | Controle financeiro pessoal e MEI |
+| `_area/dev/` | Estudos, referências, anotações e ideias sobre desenvolvimento |
 
 ## Projetos Ativos
 
