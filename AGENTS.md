@@ -33,6 +33,7 @@ brain/
 │   ├── brain/        ← O próprio Brain como produto
 │   ├── widback/      ← Feedback/bug reporting SaaS
 │   ├── zen-ai-workflow/ ← Metodologia de dev assistido por IA
+│   ├── zenckup/      ← Backup agendado de Postgres para o R2
 │   └── dna-zen-tech/ ← Sistema de UI/UX e Design
 │
 ├── _inbox/           ← Captura rápida — fallback padrão quando em dúvida
