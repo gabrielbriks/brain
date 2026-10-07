@@ -77,6 +77,12 @@ falho) · backup incremental / WAL archiving.
 - **Widback, Registoo, Pictae:** consumidores da ferramenta (uma instância em cada).
 - **Zen AI Workflow:** metodologia adotada aqui — ver o insight de adoção em `insights/`.
 
+## Material de estudo
+
+- Aprendizados, padrões de arquitetura e roteiro de entrevista:
+  `_area/dev/refs/2026-10-06-zenckup-jornada-engenheiro-de-software.md`
+- No repositório: `docs/adr/001-*.md` e `docs/learnings/replicar-dentro-da-fronteira.md`.
+
 ## Subpastas
 
 - `insights/` — aprendizados e registros de decisão do projeto
