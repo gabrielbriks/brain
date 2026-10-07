@@ -10,7 +10,7 @@ tags: [carreira, engenharia, arquitetura, entrevista, zenckup, adr, backup, trad
 
 > Origem: sessão de adoção do zen-ai-workflow no zenckup (2026-10-06). Fontes no repo
 > `/home/gabriel/www/zenckup`: `docs/adr/001-*.md`, `docs/learnings/replicar-dentro-da-fronteira.md`,
-> `AGENTS.md`, `CONTEXT.md`, `scripts/test-local.sh`. Projeto no Brain: `_projeto/zenckup/`.
+> `AGENTS.md`, `CONTEXT.md` (com 3 diagramas Mermaid: execução, compartilhado vs por projeto e decisão por escala), `scripts/test-local.sh`. Projeto no Brain: `_projeto/zenckup/`.
 > Feita para **revisão rápida** — leia o TL;DR e vá direto ao que precisar.
 
 ## TL;DR (30 segundos)
@@ -80,6 +80,18 @@ mostra que o trade-off foi entendido.
   propósito. É uma limitação consciente, não um esquecimento.
 - *"Por que não um serviço gerenciado?"* → o plano Hobby do Railway não oferece backup; essa foi a
   restrição de partida.
+
+## Como o modelo escala (1, 3 ou 10 projetos)
+
+Detalhe e diagramas em `zenckup/CONTEXT.md`, seção Arquitetura. Em resumo:
+
+- Custo de **código** é constante (1 repositório); o que cresce linearmente é **configuração e
+  operação** — 6 variáveis, 1 Cron Job e 1 restore manual por projeto.
+- Dois riscos crescem junto com N: **propagação de bug** (todos buildam o mesmo repo; com 10, fixar
+  tag por projeto e promover aos poucos) e **credencial compartilhada** (token com escopo de bucket
+  enxerga o prefixo de todos; bucket ou token por projeto devolve o isolamento).
+- Os limiares 3 e 10 são estimativas, não medidas. Dois pontos de produto seguem **sem conferir**:
+  se o Railway acompanha o branch automaticamente e se o token do R2 aceita escopo por prefixo.
 
 ## Lacunas reais (para não se enganar na revisão)
 

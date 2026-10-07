@@ -81,7 +81,14 @@ falho) · backup incremental / WAL archiving.
 
 - Aprendizados, padrões de arquitetura e roteiro de entrevista:
   `_area/dev/refs/2026-10-06-zenckup-jornada-engenheiro-de-software.md`
-- No repositório: `docs/adr/001-*.md` e `docs/learnings/replicar-dentro-da-fronteira.md`.
+- No repositório: `docs/adr/001-*.md`, `docs/learnings/replicar-dentro-da-fronteira.md` e os
+  diagramas de system design (1, 3 ou N projetos) na seção Arquitetura do `CONTEXT.md`.
+
+## Estado (2026-10-07)
+
+Fase inicial encerrada: workflow adotado, ADR-001, learning e diagramas. Próxima etapa:
+`--no-owner`/`--no-acl` no `pg_dump` (T2), depois compatibilidade de `PG_VERSION` (T1). Detalhe
+no `HANDOFF.md` do repositório.
 
 ## Subpastas
 
