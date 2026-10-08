@@ -1,6 +1,6 @@
 ---
 date: 2026-10-08
-area: trabalho
+area: pessoal
 type: ref
 status: open
 priority: medium
