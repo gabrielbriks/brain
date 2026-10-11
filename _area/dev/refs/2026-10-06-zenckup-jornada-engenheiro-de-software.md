@@ -74,8 +74,10 @@ mostra que o trade-off foi entendido.
 
 - *"E se o banco crescer muito?"* → hoje é dump completo diário; incremental/WAL archiving está
   declarado fora do escopo, a revisitar se o tamanho ou a janela virarem problema.
-- *"Como você sabe que o backup funciona?"* → o teste local restaura e confere linhas; o restore
-  contra o banco real de cada projeto ainda é manual e **não** foi exercitado em produção.
+- *"Como você sabe que o backup funciona?"* → o teste local restaura num servidor sem as roles de
+  origem e confere linhas; além disso, restaurei um dump real do Widback num Postgres 18 descartável
+  (2026-10-11). O restore é manual e repetível (roteiro no README); não é automatizado contra bancos
+  reais.
 - *"E o monitoramento?"* → hoje o sinal é o status do Cron Job; alerta ativo foi adiado de
   propósito. É uma limitação consciente, não um esquecimento.
 - *"Por que não um serviço gerenciado?"* → o plano Hobby do Railway não oferece backup; essa foi a
@@ -97,8 +99,11 @@ Detalhe e diagramas em `zenckup/CONTEXT.md`, seção Arquitetura. Em resumo:
 
 Estudar isso é mais útil do que só reler o que já está bom:
 
-- **Restore em produção nunca testado** e **sem alerta ativo** — as duas coisas que mais pesariam
-  numa conversa honesta sobre confiabilidade.
+- ~~Restore em produção nunca testado~~ **feito em 2026-10-11:** dump real do Widback restaurado num
+  Postgres 18 descartável, com roteiro repetível no README do zenckup. **Sem alerta ativo** segue
+  aberto — o que mais pesaria numa conversa honesta sobre confiabilidade.
+- "Como você sabe que o backup funciona?" agora tem resposta de verdade: restaurei um dump real, não
+  só um sintético.
 - ~~`--no-owner`/`--no-acl`~~ **resolvido (2026-10-08, plan-001):** o teste agora restaura num
   servidor sem as roles de origem. Antes, o teste passava com o defeito presente.
 - **RPO/RTO não definidos.** Dump diário implica até ~24h de perda possível; isso nunca foi

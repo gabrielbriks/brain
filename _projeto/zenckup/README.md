@@ -52,7 +52,7 @@ R2 · Railway Cron Job.
 
 | Produto | Status |
 |---|---|
-| Widback | **Em produção desde 2026-10-11:** dump 18 → R2 em `zenckups/widback/`. Faltam o restore real e o Cron Schedule (ver Plan-006 no repo do Widback) |
+| Widback | **Em produção desde 2026-10-11:** dump 18 → R2 em `zenckups/widback/`, restore real validado. Falta o Cron Schedule (ver Plan-006 no repo do Widback) |
 | Registoo | Planejado — mesma semana |
 | Pictae | Planejado — semanas seguintes |
 
@@ -66,7 +66,8 @@ falho) · backup incremental / WAL archiving.
 
 ## Pontos de atenção em aberto
 
-- **Restauração real ainda não exercitada** — o passo que dá valor ao backup; em andamento.
+- Restauração real **validada em 2026-10-11** (Widback: dump baixado do R2 e restaurado num Postgres
+  18 descartável). Roteiro repetível na seção "Restaurar" do `README.md` do repositório.
 - Se algum projeto subir de versão do Postgres, ajustar `PG_VERSION` (`pg_dump` não dumpa servidor
   mais novo que ele). Hoje todos rodam 18.6 e o padrão é `18-alpine`.
 - Conferir: se o Railway acompanha o branch automaticamente; se o token do R2 aceita escopo por
@@ -94,8 +95,9 @@ falho) · backup incremental / WAL archiving.
 O backup do Widback roda em produção. Desde a fase inicial (2026-10-07): `--no-owner`/`--no-acl`
 (plan-001, T2, com teste que restaura num servidor sem as roles), `PG_VERSION` 18 (o `pg_dump` 17
 recusava os servidores 18), `shellcheck` via Docker e `no_check_bucket` para o token do R2.
-As correções de produção vieram do deploy real, não dos testes locais. Falta: restore real num
-Postgres 18 descartável, Cron Schedule e replicar em Registoo e Pictae. Detalhe no `HANDOFF.md`.
+As correções de produção vieram do deploy real, não dos testes locais. O restore real foi feito
+e deu certo. Falta: Cron Schedule (com Restart Policy Never) e replicar em Registoo e Pictae. Detalhe
+no `HANDOFF.md`.
 
 ## Subpastas
 
