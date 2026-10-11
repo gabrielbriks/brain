@@ -45,14 +45,14 @@ para o Widback).
 
 ## Stack
 
-Docker (`postgres:17-alpine`, `ARG PG_VERSION`) · bash · `pg_dump` · gzip · `rclone` · Cloudflare
+Docker (`postgres:18-alpine`, `ARG PG_VERSION`) · bash · `pg_dump` · gzip · `rclone` · Cloudflare
 R2 · Railway Cron Job.
 
 ## Rollout
 
 | Produto | Status |
 |---|---|
-| Widback | Primeira instância, configuração em andamento (ver Plan-006 no repo do Widback) |
+| Widback | **Em produção desde 2026-10-11:** dump 18 → R2 em `zenckups/widback/`. Faltam o restore real e o Cron Schedule (ver Plan-006 no repo do Widback) |
 | Registoo | Planejado — mesma semana |
 | Pictae | Planejado — semanas seguintes |
 
@@ -66,11 +66,13 @@ falho) · backup incremental / WAL archiving.
 
 ## Pontos de atenção em aberto
 
-- `pg_dump` sem `--no-owner`/`--no-acl` pode dar atrito ao restaurar em outro usuário/banco
-  (tier T2: muda o contrato de restore dos três projetos).
+- **Restauração real ainda não exercitada** — o passo que dá valor ao backup; em andamento.
 - Se algum projeto subir de versão do Postgres, ajustar `PG_VERSION` (`pg_dump` não dumpa servidor
-  mais novo que ele).
-- Restauração é manual e ainda não foi exercitada em produção.
+  mais novo que ele). Hoje todos rodam 18.6 e o padrão é `18-alpine`.
+- Conferir: se o Railway acompanha o branch automaticamente; se o token do R2 aceita escopo por
+  prefixo; fuso do Cron Schedule.
+- Resolvidos: `--no-owner`/`--no-acl` (plan-001), `PG_VERSION` 17→18, `shellcheck` via Docker, endpoint
+  do R2 e `no_check_bucket`.
 
 ## Relação com outros projetos
 
@@ -81,14 +83,19 @@ falho) · backup incremental / WAL archiving.
 
 - Aprendizados, padrões de arquitetura e roteiro de entrevista:
   `_area/dev/refs/2026-10-06-zenckup-jornada-engenheiro-de-software.md`
-- No repositório: `docs/adr/001-*.md`, `docs/learnings/replicar-dentro-da-fronteira.md` e os
-  diagramas de system design (1, 3 ou N projetos) na seção Arquitetura do `CONTEXT.md`.
+- No repositório: `docs/adr/001-*.md`, os diagramas de system design (1, 3 ou N projetos) na seção
+  Arquitetura do `CONTEXT.md` e três learnings em `docs/learnings/`:
+  `replicar-dentro-da-fronteira.md` (a decisão), `dump-roles-owner-acl.md` (roles, owner, ACL e
+  restore) e `r2-endpoint-e-token-de-objetos.md` (armadilhas do R2 com rclone).
+- Plano executado: `docs/plans/plan-001-no-owner-no-acl.md`.
 
-## Estado (2026-10-07)
+## Estado (2026-10-11)
 
-Fase inicial encerrada: workflow adotado, ADR-001, learning e diagramas. Próxima etapa:
-`--no-owner`/`--no-acl` no `pg_dump` (T2), depois compatibilidade de `PG_VERSION` (T1). Detalhe
-no `HANDOFF.md` do repositório.
+O backup do Widback roda em produção. Desde a fase inicial (2026-10-07): `--no-owner`/`--no-acl`
+(plan-001, T2, com teste que restaura num servidor sem as roles), `PG_VERSION` 18 (o `pg_dump` 17
+recusava os servidores 18), `shellcheck` via Docker e `no_check_bucket` para o token do R2.
+As correções de produção vieram do deploy real, não dos testes locais. Falta: restore real num
+Postgres 18 descartável, Cron Schedule e replicar em Registoo e Pictae. Detalhe no `HANDOFF.md`.
 
 ## Subpastas
 

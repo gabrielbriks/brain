@@ -99,9 +99,24 @@ Estudar isso é mais útil do que só reler o que já está bom:
 
 - **Restore em produção nunca testado** e **sem alerta ativo** — as duas coisas que mais pesariam
   numa conversa honesta sobre confiabilidade.
-- **`--no-owner`/`--no-acl`** ainda pendente (T2): restaurar em outro usuário pode falhar.
+- ~~`--no-owner`/`--no-acl`~~ **resolvido (2026-10-08, plan-001):** o teste agora restaura num
+  servidor sem as roles de origem. Antes, o teste passava com o defeito presente.
 - **RPO/RTO não definidos.** Dump diário implica até ~24h de perda possível; isso nunca foi
   declarado como requisito. Saber nomear RPO e RTO é vocabulário básico de confiabilidade.
+
+## O que o deploy real ensinou (2026-10-11)
+
+Três problemas que nenhum teste local pegou, na ordem em que apareceram:
+
+1. **Versão do cliente vs servidor.** `pg_dump` 17 recusa servidor 18. O teste usava 17 dos dois
+   lados. Lição: o ambiente de teste tem que espelhar o real; conferir a versão **antes** do deploy.
+2. **Credencial e escopo do token.** Token só de objetos não verifica/cria bucket; sem
+   `no_check_bucket` o `rclone` leva 403. Fonte oficial resolveu o que a memória não resolvia.
+3. **Contorno que mascara a causa.** O endpoint copiado do painel (com `/bucket`) "funcionava", mas
+   duplicava a pasta no caminho. Antes de aceitar um contorno, perguntar por que funcionou.
+
+Também: um teste que não consegue falhar não prova nada (ver o teste falhar antes de corrigir), e
+falha silenciosa no restore (`psql` sem `ON_ERROR_STOP`) é pior que falha barulhenta.
 
 ## Para estudar a seguir
 
@@ -121,5 +136,7 @@ restore real e **medir** o tempo.
 
 - Decisão: `zenckup/docs/adr/001-instancia-de-backup-por-projeto.md`
 - Aprendizado + padrões: `zenckup/docs/learnings/replicar-dentro-da-fronteira.md`
+- Roles, owner, ACL e restore: `zenckup/docs/learnings/dump-roles-owner-acl.md`
+- R2 com rclone (endpoint e token): `zenckup/docs/learnings/r2-endpoint-e-token-de-objetos.md`
 - Adoção do workflow: `_projeto/zenckup/insights/2026-10-06-adocao-do-zen-ai-workflow.md`
 - Calibragem de tiers: `_projeto/zen-ai-workflow/insights/2026-10-06-primeira-adocao-em-projeto-pequeno-zenckup.md`
