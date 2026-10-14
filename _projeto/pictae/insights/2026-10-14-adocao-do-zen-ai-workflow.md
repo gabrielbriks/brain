@@ -2,7 +2,7 @@
 date: 2026-10-14
 projeto: pictae
 type: insight
-status: in-progress
+status: done
 tags: [zen-ai-workflow, adocao, documentacao, claude-code, git-flow]
 ---
 
@@ -38,7 +38,8 @@ Foi criada a `develop` a partir da `main`. Ela substitui a `staging`, seguindo o
 
 ## Pendências
 
-- [ ] Revisar e mergear o PR #43.
+- [x] Revisar e mergear o PR #43. Mergeado em 2026-10-14, junto com o #44 (plan-040); o #45
+      levou tudo para a `main` sem versão nova, só com redeploy do mesmo código.
 - [ ] **Issue 009:** CI e CD de homologação ainda disparam em `staging`, então PRs para `develop`
       não rodam CI. Inclui trocar a branch do serviço `pictae-api-staging` no painel do Render,
       conferir o domínio de staging na Vercel e apagar a `staging` depois do primeiro deploy pela
