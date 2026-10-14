@@ -47,5 +47,22 @@ Foi criada a `develop` a partir da `main`. Ela substitui a `staging`, seguindo o
   - se o `/memory` mostra o `AGENTS.md`;
   - se as skills aninhadas do TanStack aparecem pelo symlink.
 
+## Refinamento das regras (plan-040, PR #44)
+
+No mesmo dia, cada afirmação das regras de agente foi conferida contra o código:
+
+- **Dez contradições herdadas do template MoraisWeb foram corrigidas.** A mais grave: a regra 04
+  exigia um `logAudit` que nunca existiu, e isso virou a issue 010.
+- **O `rules.md` saiu**, porque duplicava o `AGENTS.md`.
+- **Regras carregadas por caminho:** com frontmatter `paths:` e o symlink `.claude/rules`, o
+  Claude Code carrega a regra do escopo sozinho.
+- **Novas seções no `AGENTS.md`:** protocolo de sessão, checklist antes de PR com a política de
+  changeset (obrigatório em `apps/` e `packages/`, nunca em PR só de docs) e tabela de templates.
+- **Formato de resposta com Modo Estudo** só em planos, decisões ou quando o Gabriel pedir.
+- **Skills:** saíram as de TanStack Start/SSR. A integridade das demais é verificável contra o
+  pacote npm.
+- **Fora do repositório:** o `ctx7` (Context7) foi fixado na versão 0.5.12. Antes ele rodava via
+  `npx @latest`, um risco de cadeia de suprimentos.
+
 Aprendizados para o próprio workflow:
 `_projeto/zen-ai-workflow/insights/2026-10-14-adocao-em-projeto-legado-pictae.md`.
