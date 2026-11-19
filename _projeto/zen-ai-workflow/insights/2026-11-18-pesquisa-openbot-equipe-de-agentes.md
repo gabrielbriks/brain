@@ -2,7 +2,7 @@
 date: 2026-11-18
 projeto: zen-ai-workflow
 type: insight
-status: open
+status: in-progress
 tags: [openbot, agentes, orquestracao, vps, claude, gemini, hermes, registoo, conteudo, pesquisa]
 ---
 
@@ -69,7 +69,7 @@ entre agentes com aprovação pelo celular, central única. Pelo **Princípio 8*
 
 ## Plano de piloto
 
-- **Fase 0 — teste no Windows (custo zero, 1 semana)**: app desktop; Claude via API key com limite;
+- **Fase 0 — teste no Windows (custo zero, 1 semana)** — ✅ decidido em 2026-11-18: **só o app desktop do Windows**, sem servidor (Docker no WSL fica para depois); Claude via API key com limite;
   Gemini CLI. Assinatura do Claude segue só no Claude Code normal.
 - **Fase 1 — 3 agentes**:
   1. *Editor de conteúdo Registoo* (Claude/API) — peças da W49 com skills/calendário/template Remotion existentes; prévia → aprovação no celular; nada publica sem gate humano.
