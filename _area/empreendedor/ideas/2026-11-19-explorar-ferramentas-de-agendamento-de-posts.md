@@ -6,23 +6,26 @@ status: open
 tags: [redes-sociais, agendamento, open-source, marketing, registoo, openbot, explorar]
 ---
 
-# Explorar ferramentas (de preferência open source) para agendar e publicar nas redes
+# Explorar ferramentas (de preferência open source) para agendar posts e automatizar DMs
 
 > Item exploratório, ainda sem pesquisa. Opções vistas numa rede social em 2026-11-19.
 
 ## Ideia
 
-Encontrar uma ferramenta para **substituir o "main chat"** (termo anotado como o Gabriel falou; confirmar
-qual ferramenta é, talvez ManyChat ou mLabs) no fluxo de redes sociais. De preferência open source ou
-self-hosted, para rodar junto da futura VPS própria.
+Encontrar alternativas, de preferência open source ou self-hosted (para rodar junto da futura VPS própria),
+para duas frentes:
+
+1. **Agendar e publicar posts** (substituir o agendador).
+2. **Automatizar DMs e comentários**, no estilo do **ManyChat** (confirmado pelo Gabriel em 2026-11-19).
+   Exemplo: a pessoa comenta uma palavra-chave no Reel e recebe o link ou a isca por DM.
 
 ## Candidatas para avaliar
 
-- **Postiz**
-- **Zernio**
-- **Buffer**
+Agendamento: **Postiz**, **Zernio**, **Buffer**.
+Automação de DM (alternativas ao ManyChat): ainda não levantadas.
 
-Confirmar a licença e se dá para self-hostear cada uma (não verificado).
+Confirmar a licença e se dá para self-hostear cada uma (não verificado). Para DM no Instagram, ver as
+regras da API oficial da Meta: janela de 24 h e permissões do app.
 
 ## Por que interessa
 
@@ -40,3 +43,4 @@ Confirmar a licença e se dá para self-hostear cada uma (não verificado).
 - Tem API ou webhook para um agente agendar? Mantém uma etapa de aprovação humana?
 - Mostra métricas que alimentem `marketing/metricas/`?
 - Quanto custa no início e quando escala.
+- (DM) Funciona com o Instagram pela API oficial? Dá para ligar à isca e à base de contatos do plan-046 (Resend)?
