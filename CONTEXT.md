@@ -20,6 +20,14 @@ Sistema operacional pessoal de Gabriel — hub central para capturar ideias, ins
 
 ## Infraestrutura
 
+> [!CAUTION]
+> **Desativada em 2026-11-20.** O serviço na PrimeClaws foi cancelado por falha de pagamento e o container
+> foi excluído, sem recuperação. Perdemos o Hermes, o `SOUL.md`, a skill `brain-workspace` v2, as memórias, os
+> crons (auto-sync, revisão semanal, promoções) e o gateway Telegram/Discord. **O vault no GitHub está
+> íntegro** (último commit do Hermes: 2026-11-06). As regras de escrita vivem no `AGENTS.md`. O substituto
+> temporário é um agente no OpenBot (Windows, Gemini): ver `_docs/2026-11-20-agente-secretario-do-brain.md`.
+> A tabela abaixo é histórica.
+
 | Item | Detalhe |
 |---|---|
 | Hospedagem | PrimeClaws Base Docker ($9.99/mês) |
