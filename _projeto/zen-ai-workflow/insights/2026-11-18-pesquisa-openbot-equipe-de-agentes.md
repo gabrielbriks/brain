@@ -85,6 +85,12 @@ entre agentes com aprovação pelo celular, central única. Pelo **Princípio 8*
   outras ferramentas não terem build arm64. 16 GB cobrem 8+ turnos, Chromium e Remotion.
 - Alternativas: Contabo (barato, preços só de agregador, não verificados); mini-PC em casa com monitor (resolve o
   login do Gemini e o disco, não pesquisado); Oracle Free (recupera instâncias ociosas, descartado).
+- **Provedores BR (pesquisa de 2026-11-20, preços de terceiros, conferir no checkout)**:
+  - **Hostinger KVM 4** (4 vCPU/16 GB/200 GB): promo de ~R$ 49–55/mês pagando 24 meses adiantado; renovação
+    citada a ~R$ 129,99/mês. Na página em inglês: US$ 12,99 promo / US$ 28,99 regular. Tem política de reembolso.
+    Paga em reais. → Melhor custo nos 2 primeiros anos; candidato a casa definitiva.
+  - **HostGator BR**: lançou "VPS Cloud" no Brasil (NVMe, AMD EPYC), sem tabela oficial encontrada. Terceiros
+    citam a partir de ~R$ 82–100/mês para 2 vCPU/4 GB. → Pior custo-benefício; descartado por ora.
 - **Teste barato**: a Hetzner cobra por hora. Subir, testar o login do Gemini pelo app do Windows e destruir se
   falhar custa centavos.
 - Fontes: issues #3948, #4004, #12363, #11402 e #1776 do nightly-labs/openbot; openbot.run/pricing;
