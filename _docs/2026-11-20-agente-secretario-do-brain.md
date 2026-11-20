@@ -18,9 +18,13 @@ o `SOUL.md` do Hermes pode ser gerado a partir do bloco abaixo.
 
 1. Clonar o Brain numa pasta isolada (ex.: `C:\openbot-lab\brain`). Usar um token do GitHub com acesso
    **só** ao repositório `brain`.
-2. Criar o agente com o provedor **Gemini** e colar o bloco "Instruções" abaixo.
+2. Criar o agente com o provedor **Gemini** e colar o bloco "Instruções" abaixo. No OpenBot, "Gemini" roda o
+   **Antigravity CLI** (id `antigravity`), que o próprio OpenBot baixa. Entrar com a conta do **Google AI Pro**
+   pelo navegador. Não salvar uma API key do Gemini: ela tem prioridade sobre o login e passaria a cobrar
+   pela API. O Gemini CLI antigo deixou de atender o AI Pro em 2026-06-18 e não serve para a série Gemini 4.
 3. No início do teste, liberar só `_projeto/` e `_inbox/`. Deixar `_area/pessoal`, `_area/financeiro` e
-   `_area/trabalho` fora até decidir a política de dados (tudo o que o agente lê vai para o Google).
+   `_area/trabalho` fora até decidir a política de dados (tudo o que o agente lê vai para o Google;
+   conferir a política de dados do Google AI Pro no Antigravity).
 
 ## Instruções (colar no agente)
 
