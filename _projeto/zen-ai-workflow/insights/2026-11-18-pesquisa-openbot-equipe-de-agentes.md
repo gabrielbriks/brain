@@ -67,6 +67,29 @@ entre agentes com aprovação pelo celular, central única. Pelo **Princípio 8*
   se render de Remotion pesar (preço da CAX31 não confirmado).
 - Alternativa sem administrar: hosted servers do OpenBot (~€20–25/mês), mas **dormem após 15 min** — ruim para rotinas.
 
+## Atualização 2026-11-20: servidor fora da máquina (pesquisa web com Haiku)
+
+- **Login do Gemini num servidor sem tela**: o README diz que um servidor sem desktop não conclui o login
+  do Google. O mantenedor diz que o fluxo *Connect* repassa a página do Google para o app cliente (issue #3948,
+  pedir v0.63+). Ainda há issues abertas (#12363, #11402). Os logins **não migram** entre hosts.
+  → Testar antes de se comprometer.
+- **Termos do Google (não oficial)**: uma resposta no fórum de devs do Google (2026-11-04, autor não
+  confirmado como funcionário) diz que o plano de consumidor cobre uso interativo de uma pessoa, mas **não**
+  execução em segundo plano sem supervisão, filas nem equipes de agentes. Para automação, o caminho é API key ou
+  Vertex. → Uso interativo pelo AI Pro; rotinas e alertas por **Gemini API key com limite de gasto**.
+- **Preço dos hosted servers do OpenBot**: Starter €30/mês (€24 no anual), sem specs publicadas. Corrige o
+  "€20–25" acima.
+- **Hetzner (página capturada em 2026-11-20; todos apareciam como indisponíveis)**: CX33 x86 4/8/80 €8,99 ·
+  CAX21 ARM 4/8/80 €10,99 · **CX43 x86 8 vCPU/16 GB/160 GB €16,49** · CAX31 ARM 8/16/160 €21,49.
+  Recomendação: **CX43 (x86)**. É mais barato que o ARM equivalente e evita o risco de o Antigravity CLI ou
+  outras ferramentas não terem build arm64. 16 GB cobrem 8+ turnos, Chromium e Remotion.
+- Alternativas: Contabo (barato, preços só de agregador, não verificados); mini-PC em casa com monitor (resolve o
+  login do Gemini e o disco, não pesquisado); Oracle Free (recupera instâncias ociosas, descartado).
+- **Teste barato**: a Hetzner cobra por hora. Subir, testar o login do Gemini pelo app do Windows e destruir se
+  falhar custa centavos.
+- Fontes: issues #3948, #4004, #12363, #11402 e #1776 do nightly-labs/openbot; openbot.run/pricing;
+  hetzner.com/cloud/cost-optimized; discuss.ai.google.dev/t/.../197826.
+
 ## Plano de piloto
 
 - **Fase 0 — teste no Windows (custo zero, 1 semana)** — ✅ decidido em 2026-11-18: **só o app desktop do Windows**, sem servidor (Docker no WSL fica para depois). Atualização de 2026-11-20: app instalado; primeiro provedor é o **Gemini via Google AI Pro**, que no OpenBot roda o Antigravity CLI (o Gemini CLI saiu do AI Pro em 2026-06-18). A PrimeClaws/Hermes foi perdida, ver `_docs/2026-11-20-agente-secretario-do-brain.md`; Claude via API key com limite;
