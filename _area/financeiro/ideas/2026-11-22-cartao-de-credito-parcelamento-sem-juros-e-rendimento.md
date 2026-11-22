@@ -36,6 +36,12 @@ No Brasil isso é interessante porque a taxa básica é alta. Referência dada p
   mesmo tempo. Controlar isso de cabeça ou em anotações soltas é complexo e cansativo no dia a dia, e
   um deslize (parcela esquecida, resgate no momento errado) come o ganho do rendimento.
 
+- **Regra de ouro do cartão:** concentre no cartão tudo que você já tem dinheiro para pagar à vista,
+  desde que o pagamento à vista não tenha desconto expressivo. Com um cartão que dá cashback, um
+  desconto à vista de uns 5% pode não compensar em muitos casos (o cashback e o rendimento do
+  dinheiro aplicado até o vencimento reduzem ou anulam a diferença). A conta precisa ser feita caso a
+  caso: desconto à vista vs. cashback + rendimento até o vencimento da fatura.
+
 *(Novos fatos do vídeo entram aqui.)*
 
 ## Possibilidade de produto
@@ -48,6 +54,8 @@ Mecanismo inteligente que gerencia **fatura e investimentos juntos**:
 - acompanhar compras parceladas e o cronograma de parcelas futuras;
 - indicar quanto do dinheiro "reservado" para a fatura pode ficar aplicado e por quanto tempo;
 - estimar o ganho do rendimento em comparação com pagar à vista;
+- comparar, a cada compra, pagar à vista com desconto vs. cartão (cashback + rendimento até o
+  vencimento) e indicar a melhor opção;
 - alertar quando o parcelamento deixa de ser vantajoso (juros embutidos, desconto à vista maior que
   o rendimento, risco de estourar limite).
 
@@ -57,6 +65,8 @@ mesmo (app, planilha/template, curso ou ferramenta SaaS). Formato ainda em abert
 ## Pontos a validar
 
 - Desconto à vista vs. parcelar sem juros: quando o desconto à vista supera o rendimento?
+- Ponto de equilíbrio do desconto à vista: a partir de que percentual ele passa a valer mais que
+  cashback + rendimento? (candidato a cálculo automático no produto)
 - Rendimento líquido real: considerar IR sobre a aplicação, liquidez diária e taxa do investimento.
 - Risco comportamental: parcelamento facilita acumular dívida e perder o controle da fatura.
 - Limite do cartão: parcelar longo compromete o limite por meses.
