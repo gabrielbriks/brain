@@ -1,0 +1,62 @@
+---
+date: 2026-11-22
+area: financeiro
+type: idea
+status: open
+priority: medium
+tags: [cartao-de-credito, investimentos, selic, parcelamento, possivel-produto]
+---
+
+# Cartão de crédito inteligente: parcelar sem juros para deixar o dinheiro rendendo
+
+> Nota viva. Gabriel está assistindo a um vídeo sobre estratégias de uso inteligente do cartão e vai
+> acrescentando fatos aqui conforme encontrar e entender. Novos pontos entram na seção "Fatos e
+> estratégias coletados".
+
+## Origem
+
+Vídeo sobre uso inteligente de cartão de crédito (fonte exata a registrar: ver "A preencher").
+Capturado em 2026-11-22.
+
+## Ideia central
+
+Parcelar o máximo possível de uma compra **desde que sem juros**. O dinheiro que pagaria a compra à
+vista fica aplicado e rendendo enquanto as parcelas vencem mês a mês.
+
+No Brasil isso é interessante porque a taxa básica é alta. Referência dada pelo Gabriel na data:
+**Selic em 13,75%** (valor a conferir antes de usar em qualquer cálculo ou material público).
+
+## Fatos e estratégias coletados
+
+- Parcelar sem juros em N vezes e manter o valor total aplicado, resgatando só o necessário para
+  cada fatura, faz o rendimento incidir sobre o saldo que ainda não foi pago.
+
+*(Novos fatos do vídeo entram aqui.)*
+
+## Possibilidade de produto
+
+Mecanismo inteligente que gerencia **fatura e investimentos juntos**:
+
+- acompanhar compras parceladas e o cronograma de parcelas futuras;
+- indicar quanto do dinheiro "reservado" para a fatura pode ficar aplicado e por quanto tempo;
+- estimar o ganho do rendimento em comparação com pagar à vista;
+- alertar quando o parcelamento deixa de ser vantajoso (juros embutidos, desconto à vista maior que
+  o rendimento, risco de estourar limite).
+
+Hipótese de negócio: se funcionar, pode virar **nova fonte de renda**, vendido a quem queira fazer o
+mesmo (app, planilha/template, curso ou ferramenta SaaS). Formato ainda em aberto.
+
+## Pontos a validar
+
+- Desconto à vista vs. parcelar sem juros: quando o desconto à vista supera o rendimento?
+- Rendimento líquido real: considerar IR sobre a aplicação, liquidez diária e taxa do investimento.
+- Risco comportamental: parcelamento facilita acumular dívida e perder o controle da fatura.
+- Limite do cartão: parcelar longo compromete o limite por meses.
+- Parcelamento "sem juros" do lojista pode ter o custo embutido no preço.
+- Se virar produto: cuidado com aconselhamento de investimento (regulação CVM) e com promessa de
+  rentabilidade na comunicação.
+
+## A preencher
+
+- Link/título do vídeo e canal.
+- Próximos fatos que o Gabriel for descobrindo.
