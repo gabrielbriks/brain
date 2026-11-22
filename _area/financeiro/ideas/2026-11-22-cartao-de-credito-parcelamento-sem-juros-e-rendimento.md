@@ -31,9 +31,17 @@ No Brasil isso é interessante porque a taxa básica é alta. Referência dada p
 - Parcelar sem juros em N vezes e manter o valor total aplicado, resgatando só o necessário para
   cada fatura, faz o rendimento incidir sobre o saldo que ainda não foi pago.
 
+- **O gargalo é a gestão, não a estratégia.** Parcelando tudo, a rotatividade da fatura mensal
+  aumenta bastante: muitas parcelas de compras diferentes, com vencimentos e valores distintos, ao
+  mesmo tempo. Controlar isso de cabeça ou em anotações soltas é complexo e cansativo no dia a dia, e
+  um deslize (parcela esquecida, resgate no momento errado) come o ganho do rendimento.
+
 *(Novos fatos do vídeo entram aqui.)*
 
 ## Possibilidade de produto
+
+Problema que o produto resolve: tirar da cabeça do usuário o controle de dezenas de parcelas
+simultâneas, para que a estratégia seja viável na rotina e não só na teoria.
 
 Mecanismo inteligente que gerencia **fatura e investimentos juntos**:
 
