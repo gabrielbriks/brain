@@ -39,6 +39,7 @@ tags: [openbot, agentes, modelos, gemini, claude, registoo, estrategia]
 - **Pirâmide 80 / 15 / 5:** ~80% do volume em Flash/Hydrogen/Sonnet 5.5; ~15% em Argon/Neon; ~5% em Opus 5.5/Carbon.
 - **Claude Pro:** não plugar OAuth da conta principal em agentes autônomos/VPS no OpenBot (termos da Anthropic). Usar Claude Pro no Claude Code/app interativo; no OpenBot, usar os modelos Claude expostos via provedor Antigravity ou `ANTHROPIC_API_KEY` com teto de gasto.
 - **Google AI Pro:** usar no piloto interativo (OpenBot desktop, Fase 0). Rotinas 24/7 sem supervisão em VPS futura → migrar para Gemini API key com limite de gasto.
+- **Descoberta (2026-11-24) — Créditos de US$ 10/mês no Google AI Pro:** a assinatura inclui US$ 10/mês (acumuláveis por 12 meses) via Google Developer Program / Google AI Studio para uso no **Gemini API Paid Tier** (ou Google Cloud). No **Paid Tier** o Google **não usa os dados para treino** (diferente do Free Tier, que treina!). Solução ideal em nuvem para futuro Assistente Financeiro/Pessoal (sem precisar rodar local sem VRAM) e para rotinas autônomas no OpenBot — *pendente: fazer guia passo a passo de resgate, alerta de orçamento e configuração isolada no OpenBot sem sobrescrever o login do Antigravity*.
 
 ## 4. Próximos passos (ver nota de arquitetura)
 
