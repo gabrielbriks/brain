@@ -27,11 +27,11 @@ tags: [openbot, agentes, modelos, gemini, claude, registoo, estrategia]
 
 | Agente / Papel | Modelo Principal | Fallback / Alternativa | Motivo |
 |---|---|---|---|
-| **1. Secretário do Brain** *(dia a dia, captura, git, revisão semanal)* | Gemini 3.8 Flash | Gemini 4 Hydrogen | Alta frequência; preserva cota dos modelos pesados. Subir para Hydrogen se houver deslize de regra no `AGENTS.md`. |
-| **2. Pesquisador de Mercado & Dores** *(concorrentes, jurídico/LGPD, trends brutas, dores/sub-dores)* | Gemini 4 Argon | Gemini 4 Neon | Janela de 1M tokens + destaque do Argon em análise regulatória/jurídica e síntese sem o custo de cota do Carbon. |
-| **3. Estrategista de Marketing & Growth** *(review semanal de métricas, gaps, testes, validação de ideias/trends, pauta)* | Claude Opus 5.5 | Gemini 4 Carbon *(e Hydrogen para pré-leitura bruta de números)* | Baixa frequência (semanal/campanha); exige julgamento fino para decidir o que cortar, manter ou testar. |
-| **4. Roteirista & Criador de Conteúdo** *(TikTok/Reels, YouTube, Stories, carrosséis, legendas, blog)* | Claude Sonnet 5.5 | Gemini 4 Neon | Melhor naturalidade em PT-BR, aderência ao `generic-language-killer`, filtro jurídico e agilidade em variações de gancho/storytelling. |
-| **5. Produtor de Vídeos & Peças Visuais** *(Frente A: Remotion / Frente B: Narrativo TikTok)* | Gemini 4 Neon (Remotion) · Claude Opus/Sonnet 5.5 (narrativo) | — | Híbrido: Remotion para telas/fluxos high-level do app; fluxo narrativo/storytelling para vídeos de dor/sub-dor (TikTok/Reels). |
+| **1. `Gabs` — Secretária do Brain** *(dia a dia, captura, git, revisão semanal)* | Gemini 3.8 Flash | Gemini 4 Hydrogen | Alta frequência; preserva cota dos modelos pesados. Subir para Hydrogen se houver deslize de regra no `AGENTS.md`. |
+| **2. `EDITH` — Pesquisadora de Mercado & Dores** *(concorrentes, jurídico/LGPD, trends brutas, dores/sub-dores)* | Gemini 4 Argon | Gemini 4 Neon | Janela de 1M tokens + destaque do Argon em análise regulatória/jurídica e síntese sem o custo de cota do Carbon. |
+| **3. `Fury` — Estrategista de Marketing & Growth** *(review semanal de métricas, gaps, testes, validação de ideias/trends, pauta)* | Claude Opus 5.5 | Gemini 4 Carbon *(e Hydrogen para pré-leitura bruta de números)* | Baixa frequência (semanal/campanha); exige julgamento fino para decidir o que cortar, manter ou testar. |
+| **4. `Hill` — Roteirista & Criadora de Conteúdo** *(TikTok/Reels, YouTube, Stories, carrosséis, legendas, blog)* | Claude Sonnet 5.5 | Gemini 4 Neon | Melhor naturalidade em PT-BR, aderência ao `generic-language-killer`, filtro jurídico e agilidade em variações de gancho/storytelling. |
+| **5. `Zoe` — Produtora de Vídeos & Motion** *(Frente A: Remotion / Frente B: HTML+GSAP, Canvas, SVG)* | Gemini 4 Neon (Remotion) · Claude Opus 5.5 (motion Frente B) | Benchmark pareado: Opus 5.5 vs. Gemini 4 Carbon/Neon | Híbrido: Remotion para telas/fluxos high-level do app; Método 90/10 + 4 vertentes de motion via código na Frente B. |
 | **Coletor de Padrões (Fase 2)** | Gemini 4 Carbon | Gemini 4 Neon | Cruzamento pontual entre repositórios (Registoo → zen-ai-workflow, Pictae, Historuja). |
 
 ## 3. Regra de cota e limites de assinatura

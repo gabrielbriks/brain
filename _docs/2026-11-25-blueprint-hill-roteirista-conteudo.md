@@ -111,7 +111,7 @@ Trabalhe sob demanda a partir dos briefings do Fury ou pedidos diretos do Gabrie
 - **Vídeos curtos (TikTok / Reels / Shorts):** sempre entregue (a) 3 opções de gancho de 0–3s, (b) a tag
   do framework de storytelling usado (ex.: Kishōtenketsu, 3 Atos, In Medias Res/POV, Crença Quebrada ou
   PAS/BAB Narrativo) e (c) roteiro em blocos de direção (`Tempo | Tela: Remotion ou Cena Narrativa | Fala |
-  Legenda na tela`) pronto para o Produtor Visual.
+  Legenda na tela`) pronto para a **Zoe (Produtora Visual)**.
 - **Sequências de Stories:** arcos leves de 3–5 telas com enquetes reais (sem isca artificial).
 - **YouTube:** roteiro com gancho, promessa clara, desenvolvimento ritmado e CTA.
 - **Carrosséis (`slides.json`)** seguindo `Demo Walkthrough`, `Value-Stack` ou `Rant Callout`.

@@ -62,7 +62,7 @@ Ponto de atenção levantado para evitar bagunça de papéis (especialmente em "
 | 2 | **Pesquisadora de Mercado & Dores (`EDITH`)** ✅ *desenho fechado* | Inteligência de nicho, concorrentes (Atrio, ABA+, ODAAP, ABAPlay...), jurídico/LGPD, trends brutas e mineração de dores/sub-dores com duplo foco: marketing + evolução de produto (DNA EDITH + Oracle + Heimdall + Coulson + Cerebro). Ver [[2026-11-25-blueprint-edith-pesquisadora-mercado]]. | `Gemini 4 Argon` (fallback `4 Neon`) | Dossiês em `_projeto/registoo/pesquisas/`, Banco Vivo em `registoo-check/marketing/dores-e-subdores.md` e varredura semanal de quarta (4 Lentes + auto-refinamento). | Não define pauta/estratégia, não escreve roteiros finais e não mexe em código/produção. |
 | 3 | **Estrategista de Marketing & Growth (`Fury`)** ✅ *desenho fechado* | Direção do funil orgânico, review semanal de métricas (futuro MCP Free Tier), validação de ideias/trends e visão multi-rede (DNA Fury + Shuri + Gideon + Vision). Ver [[2026-11-25-blueprint-fury-estrategista-marketing]]. | `Claude Opus 5.5` (fallback `Gemini 4 Carbon`) | Review semanal (`MANTER/CORTAR/TESTAR`), Mesa de Ideias (qui/sex) e briefing cirúrgico por peça/rede para o Roteirista. | Não escreve roteiro final, não faz pesquisa bruta de campo e não mexe em código/render. |
 | 4 | **Roteirista & Criadora de Conteúdo (`Hill`)** ✅ *desenho fechado* | Braço direito do `Fury`: transforma briefings em roteiros de TikTok/Reels (storytelling de dores/sub-dores), Stories, YouTube, carrosséis, legendas e blog (DNA Loki + Miss Minutes + Zatanna + Jocasta). Ver [[2026-11-25-blueprint-hill-roteirista-conteudo]]. | `Claude Sonnet 5.5` (fallback `Gemini 4 Neon`) | Rascunhos em `marketing/pecas/` com 3 hooks, tag de framework, blocos de direção pro Produtor Visual e checklist jurídico/`generic-language-killer`. | Não publica/agenda, não analisa métricas macro, não edita código do app. |
-| 5 | **Produtor de Vídeos & Peças Visuais** *(codinome a definir)* | Materializar roteiros aprovados nas 2 frentes: **Remotion** (telas do app, tutoriais, carrosséis) e **Narrativo/TikTok** (cenas, ritmo, legenda). | `Gemini 4 Neon` (Remotion) · `Claude Opus/Sonnet 5.5` (narrativo) | Vídeos renderizados, prévias visuais e slides prontos para aprovação do Gabriel. | Não inventa promessa fora do roteiro aprovado; nunca usa dado real de paciente (LGPD). |
+| 5 | **Produtora de Vídeos & Peças Visuais (`Zoe`)** ✅ *desenho fechado* | Materializa roteiros aprovados da `Hill` com alma Pixar (Zoetrope) + Método 90/10 + 4 vertentes de motion via código (Frente A: Remotion high-level; Frente B: HTML/GSAP, Canvas, SVG + TTS comercial). Ver [[2026-11-25-blueprint-zoe-produtora-videos-motion]]. | `Gemini 4 Neon` (Remotion) · `Claude Opus 5.5` vs. `Gemini 4 Carbon` (benchmark Frente B) | Critique Loop de frames + MP4/carrosséis renderizados ou kit de produção prontos para aprovação do Gabriel. | Só mexe em `apps/video/` e `marketing/pecas/`; nunca usa dado real (LGPD); não altera promessa do roteiro nem publica. |
 
 > **Nota sobre codinomes (decisão de 2026-11-24):** cada agente terá papel funcional explícito (nos docs) + codinome curto inspirado em IAs/tecnologias de Marvel, DC e sci-fi (ou nome afetivo como a `Gabs`) para facilitar uso diário e `@menções` no OpenBot.
 >
@@ -116,11 +116,17 @@ Ter os **5 agentes** claros no papel evita misturar papéis, mas **não ligamos 
 
 ---
 
-## 5. Progresso & Ponto de retomada
+## 5. Progresso & Próximos Passos Executivos (Time da Onda 1 100% Desenhado!)
 
-- [x] **Agente #1 — `Gabs` (Secretária do Brain):** desenho fechado em 2026-11-24 — ver [[2026-11-24-blueprint-gabs-secretaria-do-brain]] (Onda 1A).
-- [x] **Agente #2 — `Fury` (Estrategista de Marketing & Growth):** desenho fechado em 2026-11-25 — ver [[2026-11-25-blueprint-fury-estrategista-marketing]] (Onda 1B).
-- [x] **Agente #3 — `Hill` (Roteirista & Criadora de Conteúdo):** desenho fechado em 2026-11-25 — ver [[2026-11-25-blueprint-hill-roteirista-conteudo]] (Onda 1B fechada!).
-- [x] **Agente #4 — `EDITH` (Pesquisadora de Mercado, Concorrentes & Dores):** desenho fechado em 2026-11-25 — ver [[2026-11-25-blueprint-edith-pesquisadora-mercado]] (Onda 1C — falta apenas confirmar pasta `_projeto/registoo/pesquisas/` no `AGENTS.md`).
-- [ ] **Próximo e último da Onda 1:** **Agente #5 — Produtor de Vídeos & Peças Visuais** *(fecha a Onda 1C!)* — definir codinome, desenho das 2 frentes (Frente A: Remotion high-level pro app/tutoriais/carrosséis vs. Frente B: Storytelling/TikTok sem depender de Remotion), assets/voz/licenças e handoff com a `Hill`.
-- [ ] **Fechamento final pós-Agente #5:** sincronizar todos os 5 codinomes nas instruções finais + registrar `_projeto/registoo/pesquisas/` no `AGENTS.md` + plano de skills e ativação dos US$ 10/mês no OpenBot.
+- [x] **Agente #1 — `Gabs` (Secretária do Brain):** [[2026-11-24-blueprint-gabs-secretaria-do-brain]] *(Onda 1A)*
+- [x] **Agente #2 — `Fury` (Estrategista de Marketing & Growth):** [[2026-11-25-blueprint-fury-estrategista-marketing]] *(Onda 1B)*
+- [x] **Agente #3 — `Hill` (Roteirista & Criadora de Conteúdo):** [[2026-11-25-blueprint-hill-roteirista-conteudo]] *(Onda 1B)*
+- [x] **Agente #4 — `EDITH` (Pesquisadora de Mercado, Concorrentes & Dores):** [[2026-11-25-blueprint-edith-pesquisadora-mercado]] *(Onda 1C)*
+- [x] **Agente #5 — `Zoe` (Produtora de Vídeos, Motion & Peças Visuais):** [[2026-11-25-blueprint-zoe-produtora-videos-motion]] *(Onda 1C)*
+
+### Checklist de virada para execução (próxima etapa)
+- [ ] Atualizar `AGENTS.md` do Brain registrando `_projeto/<projeto>/pesquisas/` (tipo `research`) para a `EDITH`.
+- [ ] Subir a **Onda 1A (`Gabs`)** no OpenBot Windows com `git sparse-checkout` + opt-out de treino nas assinaturas PRO.
+- [ ] Guia prático de ativação dos **US$ 10/mês do Google AI Pro** (Paid Tier sem treino + teste do Google Cloud TTS `Chirp 3 HD` para a `Zoe` + configuração isolada no OpenBot).
+- [ ] Pacote de **Skills faltantes** (Árvore de Dores/Sub-dores, Storytelling PT-BR com 5 frameworks, Sequências de Stories, YouTube e Manual de Estúdio de Motion 90/10 da `Zoe`).
+- [ ] Benchmark prático da `Zoe` (Frente B): mesma peça piloto em **Opus 5.5 vs. Gemini 4 Carbon/Neon**.
