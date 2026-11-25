@@ -59,7 +59,7 @@ YYYY-MM-DD-titulo-em-kebab-case.md
 ---
 date: YYYY-MM-DD
 projeto: nome-da-pasta  # ex: registoo, pictae, historuja
-type: insight           # insight | issue | backlog | decision | idea
+type: insight           # insight | issue | backlog | decision | idea | research
 status: open            # open | in-progress | done | archived
 priority: medium        # low | medium | high | critical (obrigatório para issue e backlog)
 tags: []
@@ -113,6 +113,7 @@ tags: [plan]
 | Tipo | Pasta | Contexto |
 |---|---|---|
 | `insight` | `insights/` | `_projeto/` |
+| `research` | `pesquisas/` | `_projeto/` |
 | `issue` | `issues/` | `_projeto/` |
 | `backlog` | `backlog/` | `_projeto/` |
 | `decision` | `decisions/` | `_projeto/` |

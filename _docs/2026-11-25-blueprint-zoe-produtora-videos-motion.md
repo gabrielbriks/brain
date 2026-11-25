@@ -33,7 +33,7 @@ Inspirado no workflow de motion graphics de alta fluidez com Opus 5.5 (referênc
 
 ### Princípio 90/10 (aplicado às Frentes A e B)
 O prompt é apenas **10%** do resultado; **90%** vem do **Harness (ecossistema de regras)** ao redor da `Zoe`:
-1. **Manual de Estúdio de Motion (Rules File):** paleta exata Zen Tech, tipografia, margens de segurança 9:16 (UI do TikTok/Reels), curvas de `spring`/`easing` reais e proibição de padrões genéricos (ex.: fundo gradiente padrão + texto centralizado estático).
+1. **Manual de Estúdio de Motion (Rules File):** identidade **Emerald Premium / Zen Tech** (`Instrument Sans` + `Inter`, esmeralda `#00855D` / `#14B887`, nome público sempre **"Registoo"** — nunca "Registoo Check"), referência visual *Apple / WhatsApp / Anthropic* (uma ideia por cena, interface real), margens de segurança 9:16 (UI do TikTok/Reels), curvas de `spring`/`easing` reais e proibição de padrões genéricos (ex.: fundo gradiente padrão + texto centralizado estático).
 2. **Direção por Referência:** alimentar a `Zoe` com 1–2 vídeos/frames de referência real para replicar *pacing*, transições e hierarquia visual.
 3. **Critique Loop Visual (Playwright / FFmpeg):** antes de compilar o MP4 final, a `Zoe` renderiza **still frames-chave**, inspeciona visualmente layout, legibilidade e timing (regra de tempo de leitura do Registoo), corrige defeitos e só então faz o render final.
 
