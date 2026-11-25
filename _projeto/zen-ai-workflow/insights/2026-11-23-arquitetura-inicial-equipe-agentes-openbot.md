@@ -56,13 +56,19 @@ Ponto de atenção levantado para evitar bagunça de papéis (especialmente em "
 
 ## 2. Desenho da Equipe — Os 5 Agentes (Onda 1)
 
-| # | Agente | Missão central | Modelo sugerido | O que entrega (saída) | O que NÃO faz |
+| # | Agente (Codinome) | Missão central | Modelo sugerido | O que entrega (saída) | O que NÃO faz |
 |---|---|---|---|---|---|
-| 1 | **Secretário do Brain** | Operação pessoal do Gabriel e memória viva do Brain (transversal). | `Gemini 3.8 Flash` (fallback `4 Hydrogen`) | Notas organizadas no Brain, git sync, revisão semanal de pendências/tarefas do dia a dia. | Não produz marketing nem acessa produção/banco. |
-| 2 | **Pesquisador de Mercado & Dores** | Inteligência de nicho, concorrentes, jurídico/home care, trends brutas e mineração de dores/sub-dores. | `Gemini 4 Argon` (fallback `4 Neon`) | Dossiês verificados com fonte primária + banco vivo de dores e sub-dores (gestor e profissional). | Não define pauta nem decide o que publicar. |
-| 3 | **Estrategista de Marketing & Growth** | Direção do funil orgânico, análise de métricas, validação de ideias/trends com o Gabriel e definição de testes. | `Claude Opus 5.5` (fallback `Gemini 4 Carbon`) | Review/overview semanal de métricas (manter/cortar/testar) + pauta/briefing priorizado por dor/funil. | Não escreve roteiro final nem mexe em código/render. |
-| 4 | **Roteirista & Criador de Conteúdo** | Transformar briefings em peças prontas para aprovação: TikTok/Reels (storytelling), YouTube, sequências de Stories, carrosséis, legendas e blog. | `Claude Sonnet 5.5` (fallback `Gemini 4 Neon`) | Rascunhos em `marketing/pecas/` revisados no checklist jurídico + `generic-language-killer`. | Não publica/agenda, não analisa métricas macro, não edita código do app. |
-| 5 | **Produtor de Vídeos & Peças Visuais** | Materializar roteiros aprovados nas 2 frentes: **Remotion** (telas do app, tutoriais, carrosséis) e **Narrativo/TikTok** (cenas, ritmo, legenda). | `Gemini 4 Neon` (Remotion) · `Claude Opus/Sonnet 5.5` (narrativo) | Vídeos renderizados, prévias visuais e slides prontos para aprovação do Gabriel. | Não inventa promessa fora do roteiro aprovado; nunca usa dado real de paciente (LGPD). |
+| 1 | **Secretária do Brain (`Gabs`)** ✅ *desenho fechado* | Operação pessoal do Gabriel, memória viva do Brain e **triagem proativa** (essência FRIDAY + KAREN). Ver [[2026-11-24-blueprint-gabs-secretaria-do-brain]]. | `Gemini 3.8 Flash` (fallback `4 Hydrogen`) | Notas no Brain (`git sparse-checkout`), limpeza do `_inbox/`, revisão semanal, briefing de segunda e sugestões de handoff. | Não acessa `_area/pessoal`, `_area/financeiro`, `_area/trabalho`; não produz marketing nem acessa produção/banco. |
+| 2 | **Pesquisador de Mercado & Dores** *(codinome a definir)* | Inteligência de nicho, concorrentes, jurídico/home care, trends brutas e mineração de dores/sub-dores. | `Gemini 4 Argon` (fallback `4 Neon`) | Dossiês verificados com fonte primária + banco vivo de dores e sub-dores (gestor e profissional). | Não define pauta nem decide o que publicar. |
+| 3 | **Estrategista de Marketing & Growth** *(codinome a definir)* | Direção do funil orgânico, análise de métricas, validação de ideias/trends com o Gabriel e definição de testes. | `Claude Opus 5.5` (fallback `Gemini 4 Carbon`) | Review/overview semanal de métricas (manter/cortar/testar) + pauta/briefing priorizado por dor/funil. | Não escreve roteiro final nem mexe em código/render. |
+| 4 | **Roteirista & Criador de Conteúdo** *(codinome a definir)* | Transformar briefings em peças prontas para aprovação: TikTok/Reels (storytelling), YouTube, sequências de Stories, carrosséis, legendas e blog. | `Claude Sonnet 5.5` (fallback `Gemini 4 Neon`) | Rascunhos em `marketing/pecas/` revisados no checklist jurídico + `generic-language-killer`. | Não publica/agenda, não analisa métricas macro, não edita código do app. |
+| 5 | **Produtor de Vídeos & Peças Visuais** *(codinome a definir)* | Materializar roteiros aprovados nas 2 frentes: **Remotion** (telas do app, tutoriais, carrosséis) e **Narrativo/TikTok** (cenas, ritmo, legenda). | `Gemini 4 Neon` (Remotion) · `Claude Opus/Sonnet 5.5` (narrativo) | Vídeos renderizados, prévias visuais e slides prontos para aprovação do Gabriel. | Não inventa promessa fora do roteiro aprovado; nunca usa dado real de paciente (LGPD). |
+
+> **Nota sobre codinomes (decisão de 2026-11-24):** cada agente terá papel funcional explícito (nos docs) + codinome curto inspirado em IAs/tecnologias de Marvel, DC e sci-fi (ou nome afetivo como a `Gabs`) para facilitar uso diário e `@menções` no OpenBot.
+>
+> **No radar da Onda 2 (fora do escopo atual para manter foco no Registoo):**
+> - **Agente Casa & Dispensa** — dedicado a estoque doméstico, lista semanal/mensal e estratégia de compras/promoções em mercados, com acesso **compartilhado com a esposa** (isolado do Brain profissional).
+> - **Assistente Financeiro / Pessoal** — rodando com privacidade reforçada (modelo 100% local via Ollama/LM Studio ou API paga sem treino, sempre sobre arquivos higienizados).
 
 ### Fluxo operacional (linha de montagem)
 
@@ -110,7 +116,8 @@ Ter os **5 agentes** claros no papel evita misturar papéis, mas **não ligamos 
 
 ---
 
-## 5. Ponto de retomada (próxima sessão)
+## 5. Progresso & Ponto de retomada
 
-- **Próximo agente a estruturar em profundidade:** **Secretário do Brain** (explorar rotinas do dia a dia do Gabriel, limites de privacidade/pastas, captura, revisão semanal, integrações e só então consolidar a versão refinada das instruções).
-- Depois seguimos na ordem: Estrategista → Roteirista → Pesquisador → Produtor de Vídeos (junto com o levantamento de skills para redes sociais e vídeo).
+- [x] **Agente #1 — `Gabs` (Secretária do Brain):** desenho fechado em 2026-11-24 — ver [[2026-11-24-blueprint-gabs-secretaria-do-brain]] (pronta para subir na Onda 1A).
+- [ ] **Próximo a estruturar em profundidade:** **Estrategista de Marketing & Growth** *(ou **Pesquisador**, seguindo a Onda 1B)* — definir codinome, rotinas (review semanal de métricas, validação de ideias/trends), entradas/saídas e skills.
+- [ ] **Depois:** Roteirista → Pesquisador → Produtor de Vídeos (2 frentes) + busca/construção das skills faltantes de redes sociais e vídeo.
