@@ -54,12 +54,15 @@ O prompt é apenas **10%** do resultado; **90%** vem do **Harness (ecossistema d
 - **Via 2 — Kit de Produção (Híbrido):** quando depender de gravação/geração manual de áudio (ex.: ElevenLabs) ou ajuste fino de cena, a `Zoe` entrega o pacote completo (cenas/scripts prontos + roteiro de narração limpo com marcação de pausas + arquivo de legenda/timing) e solicita a narração ao Gabriel para fechar o render.
 
 ### Estratégia de Voz / Narração (com licença comercial obrigatória — issue 114)
-1. **ElevenLabs (Voz principal da marca):** excelente naturalidade; manter para peças *hero* / manifesto / tutoriais principais quando o Gabriel gerar a locução.
-2. **Alternativa automatizável com Free Tier + Uso Comercial — Google Cloud TTS (`Chirp 3 HD` / `Gemini-TTS` PT-BR):**
-   - Naturalidade muito próxima do ElevenLabs em PT-BR (respiração, pausas, entonação fluida).
-   - **Uso comercial 100% permitido** (diferente dos planos gratuitos do *Fish Audio* e da *Cartesia*, que proíbem uso comercial no Free Tier!).
-   - Cota mensal gratuita generosa (até ~1M caracteres/mês) + coberto pelos **US$ 10/mês do Google AI Pro** — e 100% automatizável via script pela `Zoe` sem trabalho manual do Gabriel!
-   - *(Avaliar também Microsoft Azure Neural PT-BR como backup de baixo custo.)*
+1. **ElevenLabs (Voz principal da marca — Frente A / Hero):** voz **"Carolina"** (normalizada para `-16 LUFS`), manter para peças *hero* / manifesto / tutoriais principais (ou automatizar via `ELEVENLABS_API_KEY`).
+2. **Gemini 3.8 Flash TTS (`gemini-3.8-flash-tts`, API `v1beta`) — Frente B / Storytelling & Diálogos:**
+   - Substitui o `Chirp 3 HD` *(testado em 2026-11-25 e descartado por soar sintético demais pro TikTok)*.
+   - Coberto pelos créditos do Google AI Pro (Paid Tier — sem treino de dados) e **uso comercial permitido**.
+   - **Voz validada (2026-11-26):** **`The Regal Monarch 3`** (`voice_n6ochgvc6bix`, `temperature: 0.9`) — pegada sóbria/cinematográfica inspirada no anúncio da Apple *"Tire os rastreadores dos seus dados"* (`youtube.com/watch?v=9jKSy5GYcx4`).
+   - **Camada de Diálogos (2 pessoas):** usar `dual-speaker screenplay control` do `gemini-3.8-flash-tts` para criar cenas com 2 vozes (ex.: gestor × terapeuta ou clínica × família) na mesma pegada cinematográfica do anúncio do Safari.
+   - **Atenções técnicas no código gerado pelo AI Studio:**
+     - Sempre colocar a **direção de estilo** real em `speechMetadata.style` (não repetir o transcript lá).
+     - Ao converter PCM base64 para WAV, passar `buffer.length` (bytes decodificados) em `createWavHeader`, não `rawData.length`.
 3. **Regra de compliance:** toda voz, imagem ou trilha usada deve ter a **licença de uso comercial registrada** na pasta da peça (`marketing/pecas/AAAA-MM-DD-slug/`).
 
 ---
