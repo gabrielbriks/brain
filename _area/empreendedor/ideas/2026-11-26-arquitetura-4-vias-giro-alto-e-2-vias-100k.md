@@ -3,7 +3,7 @@ date: 2026-11-26
 area: empreendedor
 type: idea
 status: open
-tags: [monetizacao, fluxo-de-caixa, slo, low-ticket, registoo, historuja, openbot, aba, jasper, denver, pesquisa-mercado, 6-digitos]
+tags: [monetizacao, fluxo-de-caixa, slo, low-ticket, registoo, historuja, openbot, athena, coulson, aba, jasper, denver, pesquisa-mercado, 6-digitos]
 ---
 
 # Pesquisa de Mercado & Arquitetura "4 Vias de Giro Alto → 2 Vias de 100k" (≤ 6 Meses)
@@ -112,3 +112,30 @@ Alimentadas diretamente pelos compradores quentes e pelo caixa das 4 Vias de Gir
    - Abrir **Turma 1 da Via Principal B** (alavancada pelas compradoras dos meses 1–3).
 4. **Mês 5–6 (Escala com caixa próprio):**
    - Reinvestir lucro do SLO + Workshops em tráfego pago validado, rodar **Turma 2 da Via Principal B** e vender **pacotes corporativos** (Clínica compra Registoo Anual + Kit Onboarding + vagas na Formação para sua equipe de ATs).
+
+---
+
+## 6. Novos Agentes Especialistas no OpenBot (Próximos Blueprints — Onda 2)
+
+> **Codinomes aprovados pelo Gabriel em 2026-11-26** para desenhar os blueprints (no mesmo padrão dos 5 agentes da Onda 1 em `_docs/2026-11-25-blueprint-*.md`) na próxima sessão, após a reunião com a sócia:
+
+| Codinome | Papel Funcional | Missão Central & Fluxo | Onde se pluga na equipe atual |
+|---|---|---|---|
+| **`Athena`** | **Destiladora de Know-How Clínico & Educacional** | Entrevista a sócia por áudios curtos (10–20 min/semana, sempre anonimizados/LGPD) e transforma conhecimento tácito de **ABA, JASPER, Denver (ESDM), Fisioterapia Neuropediátrica e gestão de ATs domiciliares** em ativos prontos: **slides do Workshop #1, Kit Digital SLO, módulos do Kit Onboarding B2B, POPs para clínicas e roteiros técnicos**. | Recebe áudios da sócia → alimenta `Fury` (pautas), `Hill` (roteiros com autoridade clínica real) e entrega materiais estruturados para empacotamento. |
+| **`Coulson`** | **Inteligência Comercial & SDR B2B** | Mapeia diariamente clínicas de ABA, neuropediatria e home care (começando por DF, GO, SP, MG, PR) buscando sinais de crescimento/dor (ex.: vagas abertas para AT domiciliar), monta **dossiê de 1 página por clínica + mensagem personalizada 1:1** (Instagram/WhatsApp/LinkedIn) e gera o **deck customizado** antes de cada call de fechamento. | Recebe inteligência de mercado da `EDITH` → entrega lista quente + scripts de abordagem para venda da **Via de Giro 4 (Kit Onboarding ATs)** e da **Via Principal A (Clínicas + Registoo Anual)**. |
+| **`Pepper`** *(opcional / fase seguinte)* | **Arquiteta de Oferta, Funil & Entrega** | Escreve páginas de captura/vendas, sequências de aquecimento para workshops, diagnósticos interativos e planos de implantação de 30 dias após fechamento. | Atua junto do `Fury` e da `Hill` quando o funil SLO e os workshops estiverem rodando em cadência mensal. |
+
+---
+
+## 7. Pauta Prática para a Reunião com a Sócia (45–60 min)
+
+Perguntas objetivas para sair da reunião já com tudo destravado para a próxima sessão:
+
+1. **Porta mais quente hoje (primeiros 45 dias):** na rede atual dela (WhatsApp, grupos, indicações), o caminho mais rápido para as primeiras vendas está em **donos de clínicas** (*Via Principal A + Kit Onboarding B2B*) ou em **terapeutas/ATs querendo aprender ABA/JASPER/Denver domiciliar** (*Workshop #1 + Formação/Supervisão*)?
+2. **Tema do Workshop #1 (Mês 1):** qual dor específica ela domina de olhos fechados e consegue entregar uma aula prática de 2 horas num sábado com alto impacto imediato?
+3. **Disponibilidade real dela por semana:** ela topa o formato de **~2h a 3h/semana** (2 áudios de 10–15 min para a `Athena` + gravação de 2–3 vídeos curtos com roteiro pronto da `Hill` + 1 sábado/mês ao vivo)?
+4. **Posicionamento & CREFITO:** validar se ela topa aparecer como rosto clínico/especialista da frente educacional + cofundadora do Registoo/Historuja (sempre seguindo as regras do COFFITO: Nome + "Fisioterapeuta" + CREFITO, zero exposição de pacientes).
+5. **Divisão societária / metas dos 6 meses:** alinhar divisão de papéis, divisão de receita dessa frente (cursos/kits/mentorias vs. SaaS) e validar a meta de **R$ 100k em ≤ 6 meses**.
+
+### Próximo passo (na próxima sessão)
+- Trazer as respostas da reunião acima → fechar o escopo do **Workshop #1 (Mês 1)** e redigir os blueprints completos da **`Athena`** e do **`Coulson`** em `_docs/` para subir no OpenBot.
