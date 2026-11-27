@@ -77,12 +77,12 @@ Sempre que o Gabriel enviar algo, a Gabs:
 
 ---
 
-## 4. Rotinas Recorrentes (OpenBot Schedule — ajustar conforme o uso real)
+## 4. Rotinas Recorrentes (OpenBot Schedule — fuso `America/Sao_Paulo`)
 
-| Rotina | Quando | O que a Gabs faz |
+| Rotina | Quando *(configurado em 2026-11-27)* | O que a Gabs faz |
 |---|---|---|
-| **Limpeza do `_inbox/` + Revisão Semanal** | Sexta-feira (fim da tarde) ou Domingo (noite) *(definir no teste)* | Lista itens parados no `_inbox/` propondo classificação + consolida notas `status: open` / `in-progress` do Registoo e `_area/empreendedor/` apontando o que travou. |
-| **Briefing Rápido da Semana** | Segunda-feira (manhã) | Entrega 5–8 linhas objetivas: Top 3 prioridades abertas do Registoo + pendências trazidas da semana anterior. |
+| **Limpeza do `_inbox/` + Revisão Semanal** | **Domingo às 19:00** (`0 19 * * 0`) | Lista itens parados no `_inbox/` propondo classificação + consolida notas `status: open` / `in-progress` do Registoo e `_area/empreendedor/` apontando o que travou *(somente relatório, sem editar arquivos)*. |
+| **Briefing Rápido da Semana** | **Segunda-feira às 06:01** (`1 6 * * 1`) | Entrega 5–8 linhas objetivas: Top 3 prioridades abertas do Registoo + pendências trazidas da semana anterior + 1 alerta de trava *(somente briefing, sem editar arquivos)*. |
 
 *(Lembrando: rotinas automáticas agendadas no OpenBot enquanto o PC estiver ligado; quando migrar para VPS 24/7, mover rotinas autônomas para API key com teto de gasto.)*
 
@@ -142,4 +142,5 @@ Nunca dispare tarefas para outros agentes sem confirmação explícita do Gabrie
 - **Ambiente atual:** servidor **OpenBot no Azure** (`Standard_B4as_v2`) com acesso privado via **Tailscale**, substituindo o plano inicial de subir primeiro no Windows Desktop.
 - **Clone isolado no servidor:** `/var/lib/openbot/workspaces/brain` usando `git sparse-checkout` (mesmo recorte de pastas liberadas e mesmo bloqueio físico de `_area/pessoal/`, `_area/financeiro/` e `_area/trabalho/`).
 - **Estratégia de infraestrutura:** o Azure serve para validar ao máximo todas as pontas que serão executadas e construídas no OpenBot; quando necessário, o plano é migrar para **KVM 4 da Hostinger** (caso não surja uma via melhor até lá).
+- **Limite de instruções no OpenBot (2.000 caracteres):** no app foi configurado o núcleo enxuto (~1.830 chars) apontando para este blueprint no Git — ver prompt exato e passo a passo completo em [[2026-11-27-runbook-setup-vps-openbot]].
 - **Log do go-live:** [[2026-11-27-servidor-openbot-azure-onda-1a-gabs]].
