@@ -73,7 +73,7 @@ Sempre que o Gabriel enviar algo, a Gabs:
 | Ideia de história, hook, sequência de Stories, vídeo TikTok/Reels ou YouTube | `_projeto/registoo/insights/` | **Roteirista** *(ou Estrategista antes, se precisar priorizar)* |
 | Bug, melhoria técnica ou feature de produto | `_projeto/registoo/issues/` ou `backlog/` | **Backlog de dev** *(Claude Code — fora do time de marketing)* |
 | Tarefa, lembrete, estudo técnico ou gestão empreendedora | `_area/empreendedor/` ou `_area/dev/` | **Própria Gabs** *(acompanha na revisão semanal)* |
-| Assunto de casa/mercado/dispensa | `_inbox/` *(temporário até nascer o agente da Onda 2)* | Sinaliza que pertence ao futuro agente **Casa & Dispensa** |
+| Assunto de casa/mercado/dispensa | `_inbox/` *(ou encaminhar direto)* | Sinaliza que pertence à **`Remy` (`xtoque`)** — ver [[2026-11-27-blueprint-remy-gestora-casa-xtoque]] |
 
 ---
 

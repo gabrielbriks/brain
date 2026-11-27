@@ -66,9 +66,9 @@ Ponto de atenção levantado para evitar bagunça de papéis (especialmente em "
 
 > **Nota sobre codinomes (decisão de 2026-11-24):** cada agente terá papel funcional explícito (nos docs) + codinome curto inspirado em IAs/tecnologias de Marvel, DC e sci-fi (ou nome afetivo como a `Gabs`) para facilitar uso diário e `@menções` no OpenBot.
 >
-> **No radar da Onda 2 (fora do escopo atual para manter foco no Registoo):**
-> - **Agente Casa & Dispensa** — dedicado a estoque doméstico, lista semanal/mensal e estratégia de compras/promoções em mercados, com acesso **compartilhado com a esposa** (isolado do Brain profissional).
-> - **Assistente Financeiro / Pessoal** — rodando com privacidade reforçada (modelo 100% local via Ollama/LM Studio ou API paga sem treino, sempre sobre arquivos higienizados).
+> **Esquadrão Casa / Família (100% isolado da startup e da `Gabs`):**
+> - **Agente #6 — `Remy` (Gestora da Casa, Despensa & Compras — `xtoque`)** ✅ *desenho fechado em 2026-11-27* — modelo `Gemini 4 Hydrogen`, workspace exclusivo no `xtoque`, acesso compartilhado com a **Luana** (preferência por Canal Compartilhado `#casa` no OpenBot se houver isolamento granular/seat; fallback grupo privado no Telegram). Ver [[2026-11-27-blueprint-remy-gestora-casa-xtoque]].
+> - **No radar (Onda 2 — Casa):** **Assistente Financeiro do Casal** (cartões, faturas, assinaturas) — previsto para entrar no mesmo espaço familiar compartilhado com a Luana, rodando em API paga sem treino (créditos GCP) sobre arquivos higienizados.
 
 ### Fluxo operacional (linha de montagem)
 
