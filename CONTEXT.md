@@ -20,12 +20,22 @@ Sistema operacional pessoal de Gabriel — hub central para capturar ideias, ins
 
 ## Infraestrutura
 
+### Estado Atual — OpenBot no Azure (2026-11-27)
+
+| Item | Detalhe |
+|---|---|
+| Orquestrador | OpenBot (Onda 1A ativa com a agente **Gabs**) |
+| Hospedagem atual | **Azure** — VM `Standard_B4as_v2` com **Tailscale** |
+| Papel do ambiente | Validação ponta a ponta de fluxos, rotinas e construção dos agentes no OpenBot |
+| Horizonte de migração | Migrar para **Hostinger KVM 4** quando necessário (se não surgir via melhor até lá) |
+| Isolamento do Brain | `git sparse-checkout` no servidor (`/var/lib/openbot/workspaces/brain`), sem `_area/pessoal/`, `_area/financeiro/` e `_area/trabalho/` |
+
 > [!CAUTION]
-> **Desativada em 2026-11-20.** O serviço na PrimeClaws foi cancelado por falha de pagamento e o container
+> **Infraestrutura anterior (PrimeClaws) desativada em 2026-11-20.** O serviço na PrimeClaws foi cancelado por falha de pagamento e o container
 > foi excluído, sem recuperação. Perdemos o Hermes, o `SOUL.md`, a skill `brain-workspace` v2, as memórias, os
 > crons (auto-sync, revisão semanal, promoções) e o gateway Telegram/Discord. **O vault no GitHub está
 > íntegro** (último commit do Hermes: 2026-11-06). As regras de escrita vivem no `AGENTS.md`. O substituto
-> temporário é um agente no OpenBot (Windows, Gemini): ver `_docs/2026-11-20-agente-secretario-do-brain.md`.
+> inicial foi planejado no OpenBot (Windows, Gemini — ver `_docs/2026-11-20-agente-secretario-do-brain.md`), evoluindo em 2026-11-27 para o servidor OpenBot no Azure (`Gabs`, Onda 1A).
 > A tabela abaixo é histórica.
 
 | Item | Detalhe |

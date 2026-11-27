@@ -19,6 +19,7 @@ tags: [openbot, azure, tailscale, onda-1a, gabs, infra]
 ## Contexto em relação ao desenho anterior
 
 - O plano inicial da Onda 1A previa subida local no Windows (ou VPS Hostinger, citada no guia de 2026-11-25); a implantação real aconteceu diretamente no servidor Azure (`Standard_B4as_v2`) com acesso privado via Tailscale.
+- **Objetivo do ambiente Azure:** validar ao máximo todas as pontas de execução e construção no OpenBot antes de uma eventual migração para **KVM 4 da Hostinger** quando necessário (caso não surja uma alternativa melhor até lá).
 
 ## Próximos passos naturais
 

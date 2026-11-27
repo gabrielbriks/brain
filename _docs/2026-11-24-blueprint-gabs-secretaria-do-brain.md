@@ -133,3 +133,13 @@ Nunca dispare tarefas para outros agentes sem confirmação explícita do Gabrie
 - Nunca salve segredos (tokens, senhas, chaves de API, dados bancários ou dados reais de pacientes/LGPD).
 - Sempre que enxergar uma forma melhor de organizar algo, proponha antes de executar.
 ```
+
+---
+
+## 6. Atualização de Implantação — 2026-11-27 (Onda 1A no Azure)
+
+- **Status atual:** **Ativa em validação (Onda 1A)** desde **2026-11-27**, sendo a primeira agente em operação no servidor OpenBot.
+- **Ambiente atual:** servidor **OpenBot no Azure** (`Standard_B4as_v2`) com acesso privado via **Tailscale**, substituindo o plano inicial de subir primeiro no Windows Desktop.
+- **Clone isolado no servidor:** `/var/lib/openbot/workspaces/brain` usando `git sparse-checkout` (mesmo recorte de pastas liberadas e mesmo bloqueio físico de `_area/pessoal/`, `_area/financeiro/` e `_area/trabalho/`).
+- **Estratégia de infraestrutura:** o Azure serve para validar ao máximo todas as pontas que serão executadas e construídas no OpenBot; quando necessário, o plano é migrar para **KVM 4 da Hostinger** (caso não surja uma via melhor até lá).
+- **Log do go-live:** [[2026-11-27-servidor-openbot-azure-onda-1a-gabs]].
