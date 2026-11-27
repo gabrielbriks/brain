@@ -72,5 +72,18 @@ O contador diz *quanto imposto vai pagar*; quase ninguém entrega para o dono da
 
 ## 5. Próximo passo sugerido (se Gabriel aprovar)
 
-- Pedir para a **`EDITH`** mapear concorrentes/preços de ferramentas de precificação médica/terapêutica para 2027 e validar as dores reais em grupos de clínicas/psicólogos/fisios.
-- Pedir para o **`Fury`** definir se entra como **Via de Giro sazonal (Dez–Jan)** ou **isca B2B do `Coulson` para a Via Principal A (Registoo)**.
+- Estacionada com `status: open` para retomar após subir as próximas ondas de agentes no OpenBot.
+- Quando retomar: acionar a **`EDITH`** para mapear concorrentes/preços de ferramentas de precificação para 2027 e dores reais de clínicas, e o **`Fury`** para definir se entra como **Via de Giro sazonal** ou **isca B2B do `Coulson` para a Via Principal A (Registoo)**.
+
+---
+
+## 6. Glossário Rápido (sem economês)
+
+- **CBS (Contribuição sobre Bens e Serviços):** imposto federal novo que substitui PIS e Cofins (entra valendo em Jan/2027).
+- **IBS (Imposto sobre Bens e Serviços):** imposto estadual + municipal novo que substitui ICMS e ISS de forma gradual.
+- **Imposto "por dentro" vs. "por fora":** no modelo antigo ("por dentro"), o imposto já vinha embutido dentro do preço da sessão; no novo ("por fora"), ele é calculado e somado por cima do preço líquido na nota.
+- **Redutor de 60% e código NBS:** serviços de saúde pagam apenas 40% da alíquota padrão de CBS/IBS, mas só se a nota usar o código oficial certo do serviço (**NBS**, equivalente ao catálogo de serviços da Receita).
+- **Nota mista:** emitir uma única nota juntando atendimento de saúde (com desconto de 60%) e outro item sem desconto (ex.: venda de produto ou sala); se não separar, corre risco de perder o benefício na nota inteira.
+- **Não-cumulatividade / crédito:** o imposto que você pagou ao comprar insumos/softwares vira "vale-desconto" para abater do imposto da sua venda. Como clínica gasta muito com gente (salário/repasse de ATs) e pouco com mercadoria, quase não sobra crédito para abater.
+- **Split payment (pagamento dividido):** na hora que o cliente passa o cartão ou Pix, o banco/maquininha já manda a fatia do imposto direto para o governo e só deposita o líquido na conta da clínica — reduz o dinheiro livre em caixa no mês.
+- **Simples Híbrido:** opção para quem está no Simples Nacional escolher pagar CBS/IBS separado para conseguir repassar crédito fiscal quando atende empresas/planos de saúde (B2B).
