@@ -226,9 +226,52 @@ Blueprint completo: `_docs/2026-11-24-blueprint-gabs-secretaria-do-brain.md`
 2. **`Gabs — Briefing de Segunda`** — **Segunda-feira às 06:01** (`1 6 * * 1`)
    - Prompt: `git pull --rebase`, ler `open`/`in-progress` de `_projeto/registoo/` e `_area/empreendedor/` + `_inbox/`, entregar 5–8 linhas com Top 3 do Registoo + pendências + 1 alerta de trava. Somente briefing, sem editar arquivos.
 
-### 6.3 Próximas ondas *(atualizar este runbook conforme ativarmos)*
-- [ ] **Onda 1B (`Fury` + `Hill`):** clone `sparse-checkout` de `registoo-check` em `/var/lib/openbot/workspaces/registoo-check` (somente `marketing/`, `apps/video/`, `.agents/`, `docs/issues/`, branch dedicada `marketing/agentes`) + prompts < 2k chars + rotinas do `Fury`.
-- [ ] **Onda 1C (`EDITH` + `Zoe`):** dependências de sistema do Playwright/Chromium (`npx playwright install-deps chromium`), `apps/video` (`pnpm install`), `.env` de TTS da `Zoe` e rotina de quarta da `EDITH`.
+### 6.3 Clone blindado do `registoo-check` (Onda 1B — Ativo ✅)
+Clonado em `/var/lib/openbot/workspaces/registoo-check` na branch dedicada **`marketing/agentes`** (criada a partir de `origin/docs/openbot-growth-skills` para já herdar as 3 skills proprietárias e `marketing/dores-e-subdores.md`, sem nunca tocar em `main`/`develop`):
+```bash
+R=/var/lib/openbot/workspaces/registoo-check
+sudo -H -u openbot git clone --filter=blob:none --no-checkout \
+  https://github.com/gabrielbriks/registoo-check.git "$R"
+sudo -H -u openbot git -C "$R" sparse-checkout init --cone
+sudo -H -u openbot git -C "$R" sparse-checkout set \
+  marketing .agents .claude apps/video \
+  docs/issues docs/legal docs/marketing
+sudo -H -u openbot git -C "$R" checkout \
+  -b marketing/agentes origin/docs/openbot-growth-skills
+sudo -H -u openbot git -C "$R" config user.name "OpenBot Team"
+sudo -H -u openbot git -C "$R" push -u origin marketing/agentes
+# Validação: em $R/apps só deve existir "video" (zero api/web/landing)
+sudo ls -la "$R" "$R/apps"
+```
+
+### 6.4 Agente #2 — `Fury` (Onda 1B — Ativo ✅)
+- **Modelo:** `Claude Opus 5.5` *(via Antigravity)* ou `Gemini 4 Carbon` · **Esforço atual:** `High` *(adequado — baixa frequência, alta decisão)*
+- **Repos:** `/var/lib/openbot/workspaces/registoo-check` (`marketing/agentes`) + `/var/lib/openbot/workspaces/brain`
+- **Rotinas agendadas (fuso `America/Sao_Paulo`):**
+  1. **`Fury — Review Semanal`** — **Segunda às 07:11** (`11 7 * * 1`) *(logo após o Briefing da `Gabs` às 06:01)*
+  2. **`Fury — Check-in Mesa de Ideias`** — **Sexta às 16:30** (`30 16 * * 5`)
+- **Pendência registrada (v2):** quando fecharmos a integração de agendamento/métricas via MCP (**Zernio** vs. **Postiz** — ver [[2026-11-19-explorar-ferramentas-de-agendamento-de-posts]]), atualizar as instruções do `Fury` para ler métricas direto pela integração em vez de só `marketing/metricas/`.
+
+### 6.5 Agente #3 — `Hill` (Onda 1B — Ativa ✅)
+- **Modelo:** `Claude Sonnet 5.5` *(via Antigravity)* ou `Gemini 4 Neon` · **Esforço atual:** `High` *(ponto de revisão: testar baixar para `Medium` se ficar lenta ou gastar muita cota no dia a dia)*
+- **Repos:** `/var/lib/openbot/workspaces/registoo-check` (`marketing/agentes`) + `/var/lib/openbot/workspaces/brain`
+- **Rotinas:** nenhuma *(100% sob demanda)*
+
+### 6.6 Calibração de Nível de Esforço (Reasoning Effort) — Revisão Pós-Setup
+*(Todos iniciados em `High`; revisar após a 1ª semana de uso real para equilibrar velocidade e cota:)*
+| Agente | Esforço recomendado na revisão | Motivo |
+|---|---|---|
+| **`Gabs`** | `Low` / `Medium` | Alta frequência de capturas simples; `High` só adiciona latência e consome cota à toa. |
+| **`Fury`** | `High` | Baixa frequência, análise de funil e decisões estratégicas críticas. |
+| **`Hill`** | `Medium` *(ou `High` em roteiro hero/YouTube)* | Escrita natural em volume semanal com boa velocidade. |
+| **`EDITH`** | `High` | Pesquisa densa, cruzamento de fontes e análise regulatória/jurídica. |
+| **`Zoe`** | `High` | Motion via código + Critique Loop visual exigem precisão máxima. |
+
+### 6.7 Próximas ondas *(atualizar este runbook conforme ativarmos)*
+- [x] **Onda 1A (`Gabs`):** ativa com 2 rotinas (Dom 19:00 / Seg 06:01).
+- [x] **Onda 1B (`Fury` + `Hill`):** ativos no `registoo-check` (`marketing/agentes`) + rotinas do `Fury` (Seg 07:11 / Sex 16:30).
+- [ ] **Onda 1C (`EDITH` + `Zoe`):** dependências de sistema do Playwright/Chromium (`npx playwright install-deps chromium`), `apps/video` (`pnpm install`), `.env` de TTS da `Zoe` (`gemini-3.8-flash-tts`), prompts < 2k chars e rotina de quarta da `EDITH`.
+- [ ] **Pós-Onda 1C:** usar a `EDITH` para fechar o comparativo **Zernio vs. Postiz** (Free Tier + MCP) e depois plugar nas instruções do `Fury`; revisar o nível de esforço de cada agente.
 
 ---
 
