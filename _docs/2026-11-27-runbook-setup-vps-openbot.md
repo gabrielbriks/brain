@@ -257,21 +257,51 @@ sudo ls -la "$R" "$R/apps"
 - **Repos:** `/var/lib/openbot/workspaces/registoo-check` (`marketing/agentes`) + `/var/lib/openbot/workspaces/brain`
 - **Rotinas:** nenhuma *(100% sob demanda)*
 
-### 6.6 Calibração de Nível de Esforço (Reasoning Effort) — Revisão Pós-Setup
-*(Todos iniciados em `High`; revisar após a 1ª semana de uso real para equilibrar velocidade e cota:)*
-| Agente | Esforço recomendado na revisão | Motivo |
+### 6.6 Preparação do motor visual da `Zoe` (Onda 1C — Ativo ✅)
+Instala **somente** as dependências de `apps/video` (Remotion + Playwright), bibliotecas Linux do Chromium e os binários de browser no cache do usuário `openbot`:
+```bash
+R=/var/lib/openbot/workspaces/registoo-check
+V="$R/apps/video"
+
+sudo mkdir -p /var/lib/openbot/.cache /var/lib/openbot/.local
+sudo chown -R openbot:openbot /var/lib/openbot/.cache
+sudo chown -R openbot:openbot /var/lib/openbot/.local
+
+sudo -H -u openbot pnpm --dir "$R" install \
+  --filter video --no-frozen-lockfile
+sudo "$V/node_modules/.bin/playwright" install-deps chromium
+sudo -H -u openbot "$V/node_modules/.bin/playwright" install chromium
+sudo -H -u openbot pnpm --dir "$R" --filter video \
+  exec remotion browser ensure
+```
+
+### 6.7 Agente #4 — `EDITH` (Onda 1C — Ativa ✅)
+- **Modelo:** `Gemini 4 Argon` *(fallback: `Gemini 4 Neon`)* · **Esforço:** `High`
+- **Repos:** `/var/lib/openbot/workspaces/brain` (`main`) + `/var/lib/openbot/workspaces/registoo-check` (`marketing/agentes`)
+- **Rotina agendada (fuso `America/Sao_Paulo`):**
+  1. **`EDITH — Varredura Semanal (4 Lentes)`** — **Quarta-feira às 09:30** (`30 9 * * 3`) *(horário escolhido para pegar também publicações frescas do início do dia)*
+
+### 6.8 Agente #5 — `Zoe` (Onda 1C — Ativa ✅)
+- **Modelo:** `Gemini 4 Neon` *(Frente A / Remotion)* ou `Claude Opus 5.5` / `Gemini 4 Carbon` *(benchmark Frente B)* · **Esforço:** `High`
+- **Repos:** `/var/lib/openbot/workspaces/registoo-check` (`marketing/agentes`) + `/var/lib/openbot/workspaces/brain`
+- **Rotinas:** nenhuma *(100% sob demanda após roteiro aprovado da `Hill`)*
+- **Pendente (quando ativar áudio automatizado na VM):** configurar `registoo-check/apps/video/.env` com `GEMINI_API_KEY` (Paid Tier) para `gemini-3.8-flash-tts` (`voice_n6ochgvc6bix`) — ver [[2026-11-26-referencia-tts-gemini-38-flash-zoe]].
+
+### 6.9 Calibração de Nível de Esforço (Reasoning Effort) — Aplicada ✅
+| Agente | Esforço configurado | Motivo |
 |---|---|---|
-| **`Gabs`** | `Low` / `Medium` | Alta frequência de capturas simples; `High` só adiciona latência e consome cota à toa. |
+| **`Gabs`** | `Medium` *(ou `Low`)* | Alta frequência de capturas simples; poupa cota e responde mais rápido. |
 | **`Fury`** | `High` | Baixa frequência, análise de funil e decisões estratégicas críticas. |
-| **`Hill`** | `Medium` *(ou `High` em roteiro hero/YouTube)* | Escrita natural em volume semanal com boa velocidade. |
+| **`Hill`** | `Medium` *(subir pra `High` em roteiro hero/YouTube)* | Escrita natural em volume semanal com boa velocidade. |
 | **`EDITH`** | `High` | Pesquisa densa, cruzamento de fontes e análise regulatória/jurídica. |
 | **`Zoe`** | `High` | Motion via código + Critique Loop visual exigem precisão máxima. |
 
-### 6.7 Próximas ondas *(atualizar este runbook conforme ativarmos)*
+### 6.10 Status das Ondas & Próximas Evoluções
 - [x] **Onda 1A (`Gabs`):** ativa com 2 rotinas (Dom 19:00 / Seg 06:01).
 - [x] **Onda 1B (`Fury` + `Hill`):** ativos no `registoo-check` (`marketing/agentes`) + rotinas do `Fury` (Seg 07:11 / Sex 16:30).
-- [ ] **Onda 1C (`EDITH` + `Zoe`):** dependências de sistema do Playwright/Chromium (`npx playwright install-deps chromium`), `apps/video` (`pnpm install`), `.env` de TTS da `Zoe` (`gemini-3.8-flash-tts`), prompts < 2k chars e rotina de quarta da `EDITH`.
-- [ ] **Pós-Onda 1C:** usar a `EDITH` para fechar o comparativo **Zernio vs. Postiz** (Free Tier + MCP) e depois plugar nas instruções do `Fury`; revisar o nível de esforço de cada agente.
+- [x] **Onda 1C (`EDITH` + `Zoe`):** Playwright/Chromium/Remotion instalados na VM + rotina da `EDITH` (Qua 09:30) + `Zoe` sob demanda.
+- [ ] **Validação operacional (próxima etapa):** rodar missão de estreia da `EDITH` (**Zernio vs. Postiz**) + teste ponta a ponta `Fury → Hill → Zoe` (incluindo stress test de render MP4 na `Standard_B4as_v2`).
+- [ ] **Pós-validação:** plugar integração escolhida (**Zernio** ou **Postiz** MCP) nas instruções do `Fury` e configurar `.env` de TTS da `Zoe` na VM.
 
 ---
 
