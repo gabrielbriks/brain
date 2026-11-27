@@ -130,3 +130,9 @@ Ter os **5 agentes** claros no papel evita misturar papéis, mas **não ligamos 
 - [ ] Guia prático de ativação dos **US$ 10/mês do Google AI Pro** (Paid Tier sem treino + teste do Google Cloud TTS `Chirp 3 HD` para a `Zoe` + configuração isolada no OpenBot).
 - [ ] Pacote de **Skills faltantes** (Árvore de Dores/Sub-dores, Storytelling PT-BR com 5 frameworks, Sequências de Stories, YouTube e Manual de Estúdio de Motion 90/10 da `Zoe`).
 - [ ] Benchmark prático da `Zoe` (Frente B): mesma peça piloto em **Opus 5.5 vs. Gemini 4 Carbon/Neon**.
+
+---
+
+## 6. Atualização — 2026-11-27 (Go-live Onda 1A no Azure)
+
+- [x] **Onda 1A (`Gabs`) no ar:** servidor **OpenBot** provisionado no **Azure (`Standard_B4as_v2`)** com **Tailscale**, e `Gabs` ativada como primeira agente operacional (substituindo o plano anterior de subir primeiro no Windows). Registro detalhado em [[2026-11-27-servidor-openbot-azure-onda-1a-gabs]].
